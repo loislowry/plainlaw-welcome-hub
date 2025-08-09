@@ -56,24 +56,6 @@ const CaseSelector: React.FC = () => {
 
   return (
     <div className="min-h-screen bg-background">
-      {/* Header */}
-      <header className="glass-header sticky top-0 z-50">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-6">
-          <div className="flex items-center justify-between">
-            <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-              PlainLaw.ai
-            </h1>
-            <div className="flex items-center space-x-6">
-              <span className="text-sm font-medium text-foreground-soft">Welcome back, {userName}</span>
-              <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-gradient-to-br from-primary to-accent shadow-lg">
-                <span className="text-primary-foreground font-bold text-lg">
-                  {userName.charAt(0).toUpperCase()}
-                </span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
 
       {/* Main Content */}
       <main className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 py-20">
@@ -118,27 +100,6 @@ const CaseSelector: React.FC = () => {
         </div>
       </main>
 
-      {/* Footer */}
-      <footer className="bg-background-subtle border-t border-border mt-20">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="text-sm text-foreground-soft">
-              © 2024 PlainLaw.ai. Making legal help accessible to everyone.
-            </div>
-            <div className="flex space-x-6 text-sm">
-              <a href="#" className="text-foreground-soft hover:text-legal-blue transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="text-foreground-soft hover:text-legal-blue transition-colors">
-                Terms of Service
-              </a>
-              <a href="#" className="text-foreground-soft hover:text-legal-blue transition-colors">
-                Help Center
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
     </div>
   );
 };
