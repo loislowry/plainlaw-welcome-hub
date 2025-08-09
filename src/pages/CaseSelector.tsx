@@ -57,16 +57,16 @@ const CaseSelector: React.FC = () => {
   return (
     <div className="min-h-screen bg-background">
       {/* Header */}
-      <header className="bg-background border-b border-border">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <header className="glass-header sticky top-0 z-50">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-6">
           <div className="flex items-center justify-between">
-            <h1 className="text-2xl font-bold text-legal-blue">
+            <h1 className="text-3xl font-bold bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
               PlainLaw.ai
             </h1>
-            <div className="flex items-center space-x-4">
-              <span className="text-sm text-foreground-soft">Welcome back, {userName}</span>
-              <div className="w-8 h-8 bg-legal-blue-light rounded-full flex items-center justify-center">
-                <span className="text-legal-blue font-medium text-sm">
+            <div className="flex items-center space-x-6">
+              <span className="text-sm font-medium text-foreground-soft">Welcome back, {userName}</span>
+              <div className="w-12 h-12 rounded-2xl flex items-center justify-center bg-gradient-to-br from-primary to-accent shadow-lg">
+                <span className="text-primary-foreground font-bold text-lg">
                   {userName.charAt(0).toUpperCase()}
                 </span>
               </div>
@@ -76,13 +76,13 @@ const CaseSelector: React.FC = () => {
       </header>
 
       {/* Main Content */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+      <main className="max-w-5xl mx-auto px-6 sm:px-8 lg:px-12 py-20">
         {/* Greeting */}
-        <div className="text-center mb-12">
-          <h2 className="text-3xl md:text-4xl font-light text-foreground mb-4">
-            Hi {userName}, what do you need help with today?
+        <div className="text-center mb-20">
+          <h2 className="text-5xl md:text-6xl font-light text-foreground mb-8 leading-tight">
+            Hi {userName}, <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">what do you need help with today?</span>
           </h2>
-          <p className="text-lg text-foreground-soft max-w-2xl mx-auto">
+          <p className="text-xl text-foreground-soft max-w-3xl mx-auto leading-relaxed">
             Select the type of legal assistance you need. We'll guide you through each step of the process.
           </p>
         </div>
@@ -102,16 +102,16 @@ const CaseSelector: React.FC = () => {
         </div>
 
         {/* Help Section */}
-        <div className="mt-16 text-center">
-          <div className="bg-legal-blue-light rounded-xl p-8">
-            <h3 className="text-xl font-semibold text-legal-blue mb-3">
+        <div className="mt-24 text-center">
+          <div className="case-card max-w-2xl mx-auto">
+            <h3 className="text-2xl font-bold text-foreground mb-4">
               Need something else?
             </h3>
-            <p className="text-foreground-soft mb-6">
+            <p className="text-foreground-soft mb-8 text-lg">
               Our team is here to help you navigate California's legal system. 
               If you don't see what you're looking for, we can still assist you.
             </p>
-            <button className="bg-legal-blue text-primary-foreground px-6 py-3 rounded-lg font-medium hover:bg-primary-hover transition-colors duration-200 focus:outline-none focus:ring-2 focus:ring-legal-blue focus:ring-offset-2">
+            <button className="modern-btn">
               Contact Support
             </button>
           </div>

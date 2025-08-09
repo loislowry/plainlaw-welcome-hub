@@ -65,10 +65,10 @@ export default {
 					hover: 'hsl(var(--card-hover))'
 				},
 				legal: {
-					blue: 'hsl(var(--legal-blue))',
-					'blue-light': 'hsl(var(--legal-blue-light))',
-					gray: 'hsl(var(--legal-gray))',
-					'gray-light': 'hsl(var(--legal-gray-light))'
+					blue: 'hsl(var(--primary))',
+					'blue-light': 'hsl(var(--secondary))',
+					gray: 'hsl(var(--muted-foreground))',
+					'gray-light': 'hsl(var(--muted))'
 				},
 				sidebar: {
 					DEFAULT: 'hsl(var(--sidebar-background))',
