@@ -55,6 +55,12 @@ const CaseSelector: React.FC = () => {
       layout: 'image-left',
       imageSrc: '/placeholder.svg',
       imageAlt: 'Cute assistant robot in a living room'
+    },
+    {
+      title: 'Security & Compliance',
+      description: 'Keep data protected and meet regulatory standards with built-in safeguards.',
+      icon: '🛡',
+      layout: 'text-only'
     }
   ];
 
@@ -72,7 +78,7 @@ const CaseSelector: React.FC = () => {
 
         <section className="grid md:grid-cols-2 gap-6 md:gap-8">
           {features.map((f) => (
-            <article key={f.title} className="case-card rounded-2xl p-5 md:p-6 animate-fade-in">
+            <article key={f.title} className="case-card relative rounded-3xl p-6 md:p-7 bg-card/90 border border-border shadow-2xl transition-all duration-300 hover:-translate-y-0.5">
               {f.layout === 'image-left' ? (
                 <div className="grid md:grid-cols-5 gap-4 md:gap-6 items-center">
                   <div className="md:col-span-3">
@@ -81,12 +87,12 @@ const CaseSelector: React.FC = () => {
                         src={f.imageSrc}
                         alt={f.imageAlt || f.title}
                         loading="lazy"
-                        className="w-full h-40 md:h-44 object-cover rounded-xl"
+                        className="w-full h-40 md:h-44 object-cover rounded-xl shadow-2xl"
                       />
                     )}
                   </div>
                   <div className="md:col-span-2">
-                    <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-foreground text-background shadow-md mb-4">
+                    <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-foreground text-background shadow-xl mb-4">
                       <span className="text-base">{f.icon}</span>
                     </div>
                     <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-2">{f.title}</h3>
@@ -95,7 +101,7 @@ const CaseSelector: React.FC = () => {
                 </div>
               ) : (
                 <div className="flex items-start gap-4">
-                  <div className="inline-flex h-10 w-10 items-center justify-center rounded-xl bg-foreground text-background shadow-md">
+                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-foreground text-background shadow-xl">
                     <span className="text-base">{f.icon}</span>
                   </div>
                   <div>
