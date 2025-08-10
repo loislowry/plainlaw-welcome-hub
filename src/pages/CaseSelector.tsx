@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { Button } from '@/components/ui/button';
-
+import { useToast } from '@/components/ui/use-toast';
 
 const CaseSelector: React.FC = () => {
   useEffect(() => {
@@ -16,6 +16,8 @@ const CaseSelector: React.FC = () => {
       document.head.appendChild(m);
     }
   }, []);
+
+  const { toast } = useToast();
 
   type Layout = 'image-left' | 'text-only';
   interface Feature {
@@ -88,7 +90,12 @@ const CaseSelector: React.FC = () => {
 
         <section className="grid md:grid-cols-6 gap-6 md:gap-8">
           {features.map((f, index) => (
-            <article key={f.title} className={`case-card relative rounded-3xl p-6 md:p-7 bg-card/90 border border-border shadow-2xl transition-all duration-300 will-change-transform hover:-translate-y-0.5 group animate-fade-slide-in ${delays[index]} ${layoutVariants[index]}`}>
+            <article key={f.title} onClick={() => { if (index > 0) toast({ title: 'Coming soon', description: 'This feature will be available shortly.' }); }} className={`case-card relative rounded-3xl p-6 md:p-7 bg-card/90 border border-border shadow-2xl transition-all duration-300 will-change-transform hover:-translate-y-0.5 group animate-fade-slide-in ${delays[index]} ${layoutVariants[index]} ${index > 0 ? 'cursor-not-allowed' : ''}`} aria-disabled={index > 0}>
+              {index > 0 && (
+                <div className="absolute inset-0 z-10 rounded-3xl bg-card/60 backdrop-blur-md border border-border/60 flex items-center justify-center opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300 pointer-events-none">
+                  <span className="text-sm md:text-base font-medium text-foreground">Coming soon</span>
+                </div>
+              )}
               {f.layout === 'image-left' ? (
                 <div className="grid md:grid-cols-5 gap-4 md:gap-6 items-center">
                   <div className="md:col-span-3">
