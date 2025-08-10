@@ -86,9 +86,9 @@ const CaseSelector: React.FC = () => {
           </p>
         </header>
 
-        <section className="columns-1 md:columns-2 gap-6 md:gap-8">
+        <section className="grid md:grid-cols-2 gap-6 md:gap-8">
           {features.map((f, index) => (
-            <article key={f.title} className={`break-inside-avoid mb-6 md:mb-8 case-card relative rounded-3xl p-6 md:p-7 bg-card/90 border border-border shadow-2xl transition-all duration-300 will-change-transform hover:-translate-y-0.5 group animate-fade-slide-in ${delays[index]} ${layoutVariants[index]}`}>
+            <article key={f.title} className={`case-card relative rounded-3xl p-6 md:p-7 bg-card/90 border border-border shadow-2xl transition-all duration-300 will-change-transform hover:-translate-y-0.5 group animate-fade-slide-in ${delays[index]} ${layoutVariants[index]}`}>
               {f.layout === 'image-left' ? (
                 <div className="grid md:grid-cols-5 gap-4 md:gap-6 items-center">
                   <div className="md:col-span-3">
