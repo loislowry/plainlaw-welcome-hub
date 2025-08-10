@@ -27,6 +27,7 @@ const CaseSelector: React.FC = () => {
     imageAlt?: string;
   }
 
+
   const features: Feature[] = [
     {
       title: 'Cutting-Edge AI',
@@ -64,10 +65,12 @@ const CaseSelector: React.FC = () => {
     }
   ];
 
+  const delays = ['animate-delay-100','animate-delay-200','animate-delay-300','animate-delay-400','animate-delay-500'];
+
   return (
     <div className="min-h-screen bg-background">
       <main className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-16 md:py-24">
-        <header className="text-center mb-10 md:mb-14">
+        <header className="text-center mb-10 md:mb-14 animate-enter">
           <h1 className="text-4xl md:text-6xl font-semibold text-foreground mb-4">
             All features in 1 tool
           </h1>
@@ -77,8 +80,8 @@ const CaseSelector: React.FC = () => {
         </header>
 
         <section className="grid md:grid-cols-2 gap-6 md:gap-8">
-          {features.map((f) => (
-            <article key={f.title} className="case-card relative rounded-3xl p-6 md:p-7 bg-card/90 border border-border shadow-2xl transition-all duration-300 hover:-translate-y-0.5">
+          {features.map((f, index) => (
+            <article key={f.title} className={`case-card relative rounded-3xl p-6 md:p-7 bg-card/90 border border-border shadow-2xl transition-all duration-300 will-change-transform hover:-translate-y-0.5 group animate-enter ${delays[index]}`}>
               {f.layout === 'image-left' ? (
                 <div className="grid md:grid-cols-5 gap-4 md:gap-6 items-center">
                   <div className="md:col-span-3">
@@ -87,12 +90,12 @@ const CaseSelector: React.FC = () => {
                         src={f.imageSrc}
                         alt={f.imageAlt || f.title}
                         loading="lazy"
-                        className="w-full h-40 md:h-44 object-cover rounded-xl shadow-2xl"
+                        className="w-full h-40 md:h-44 object-cover rounded-xl shadow-2xl transition-transform duration-500 ease-out group-hover:scale-[1.02]"
                       />
                     )}
                   </div>
                   <div className="md:col-span-2">
-                    <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-foreground text-background shadow-xl mb-4">
+                    <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-foreground text-background shadow-xl mb-4 transition-transform duration-300 group-hover:-translate-y-0.5">
                       <span className="text-base">{f.icon}</span>
                     </div>
                     <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-2">{f.title}</h3>
@@ -101,7 +104,7 @@ const CaseSelector: React.FC = () => {
                 </div>
               ) : (
                 <div className="flex items-start gap-4">
-                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-foreground text-background shadow-xl">
+                  <div className="inline-flex h-11 w-11 items-center justify-center rounded-xl bg-foreground text-background shadow-xl transition-transform duration-300 group-hover:-translate-y-0.5">
                     <span className="text-base">{f.icon}</span>
                   </div>
                   <div>
@@ -115,8 +118,8 @@ const CaseSelector: React.FC = () => {
         </section>
 
         <div className="mt-10 md:mt-14 flex items-center justify-center gap-4">
-          <Button size="lg">Get Started</Button>
-          <Button variant="outline" size="lg">See Our Services</Button>
+          <Button size="lg" className="animate-enter animate-delay-300">Get Started</Button>
+          <Button variant="outline" size="lg" className="animate-enter animate-delay-400">See Our Services</Button>
         </div>
       </main>
     </div>
