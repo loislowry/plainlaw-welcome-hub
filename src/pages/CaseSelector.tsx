@@ -85,7 +85,7 @@ const CaseSelector: React.FC = () => {
                     {f.imageSrc && <img src={f.imageSrc} alt={f.imageAlt || f.title} loading="lazy" className="w-full h-40 md:h-44 object-cover rounded-xl shadow-2xl transition-transform duration-500 ease-out group-hover:scale-[1.02]" />}
                   </div>
                   <div className="md:col-span-2">
-              {index === 0 && <Button size="sm" className="mb-4 transition-transform duration-300 group-hover:-translate-y-0.5">
+              {index === 0 && <Button size="sm" className="mb-4 transition-transform duration-300 group-hover:-translate-y-0.5 bg-[#1c1e22]">
     Start my case
   </Button>}
                     <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-2">{f.title}</h3>
@@ -102,8 +102,8 @@ const CaseSelector: React.FC = () => {
         </section>
 
         <div className="mt-10 md:mt-14 flex items-center justify-center gap-4">
-          <Button size="lg" className="animate-fade-slide-in animate-delay-300">Get Started</Button>
-          <Button variant="outline" size="lg" className="animate-fade-slide-in animate-delay-400">See Our Services</Button>
+          <Button size="lg" className="animate-fade-slide-in animate-delay-300 bg-[#1c1e22]">I Just Wanna Chat Ai</Button>
+          
         </div>
       </main>
     </div>;
