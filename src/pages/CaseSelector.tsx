@@ -70,7 +70,7 @@ const CaseSelector: React.FC = () => {
   return (
     <div className="min-h-screen bg-background">
       <main className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-16 md:py-24">
-        <header className="text-center mb-10 md:mb-14 animate-enter">
+        <header className="text-center mb-10 md:mb-14 animate-fade-slide-in animate-delay-100">
           <h1 className="text-4xl md:text-6xl font-semibold text-foreground mb-4">
             All features in 1 tool
           </h1>
@@ -81,7 +81,7 @@ const CaseSelector: React.FC = () => {
 
         <section className="grid md:grid-cols-2 gap-6 md:gap-8">
           {features.map((f, index) => (
-            <article key={f.title} className={`case-card relative rounded-3xl p-6 md:p-7 bg-card/90 border border-border shadow-2xl transition-all duration-300 will-change-transform hover:-translate-y-0.5 group animate-enter ${delays[index]}`}>
+            <article key={f.title} className={`case-card relative rounded-3xl p-6 md:p-7 bg-card/90 border border-border shadow-2xl transition-all duration-300 will-change-transform hover:-translate-y-0.5 group animate-fade-slide-in ${delays[index]}`}>
               {f.layout === 'image-left' ? (
                 <div className="grid md:grid-cols-5 gap-4 md:gap-6 items-center">
                   <div className="md:col-span-3">
@@ -118,8 +118,8 @@ const CaseSelector: React.FC = () => {
         </section>
 
         <div className="mt-10 md:mt-14 flex items-center justify-center gap-4">
-          <Button size="lg" className="animate-enter animate-delay-300">Get Started</Button>
-          <Button variant="outline" size="lg" className="animate-enter animate-delay-400">See Our Services</Button>
+          <Button size="lg" className="animate-fade-slide-in animate-delay-300">Get Started</Button>
+          <Button variant="outline" size="lg" className="animate-fade-slide-in animate-delay-400">See Our Services</Button>
         </div>
       </main>
     </div>
