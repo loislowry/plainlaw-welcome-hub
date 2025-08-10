@@ -109,9 +109,11 @@ const CaseSelector: React.FC = () => {
                     )}
                   </div>
                   <div className="md:col-span-2">
-<Button size="sm" className="mb-4 transition-transform duration-300 group-hover:-translate-y-0.5">
-  Start my case
-</Button>
+{index === 0 && (
+  <Button size="sm" className="mb-4 transition-transform duration-300 group-hover:-translate-y-0.5">
+    Start my case
+  </Button>
+)}
                     <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-2">{f.title}</h3>
                     <p className="text-foreground-soft text-base">{f.description}</p>
                   </div>
