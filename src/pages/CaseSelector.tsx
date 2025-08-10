@@ -66,6 +66,13 @@ const CaseSelector: React.FC = () => {
   ];
 
   const delays = ['animate-delay-100','animate-delay-200','animate-delay-300','animate-delay-400','animate-delay-500'];
+  const layoutVariants = [
+    'md:col-span-4 md:min-h-[16rem]',
+    'md:col-span-2 md:min-h-[12rem]',
+    'md:col-span-3 md:min-h-[14rem]',
+    'md:col-span-3 md:min-h-[18rem]',
+    'md:col-span-6 md:min-h-[14rem]'
+  ];
 
   return (
     <div className="min-h-screen bg-background">
@@ -79,9 +86,9 @@ const CaseSelector: React.FC = () => {
           </p>
         </header>
 
-        <section className="grid md:grid-cols-2 gap-6 md:gap-8">
+        <section className="grid md:grid-cols-6 gap-6 md:gap-8">
           {features.map((f, index) => (
-            <article key={f.title} className={`case-card relative rounded-3xl p-6 md:p-7 bg-card/90 border border-border shadow-2xl transition-all duration-300 will-change-transform hover:-translate-y-0.5 group animate-fade-slide-in ${delays[index]}`}>
+            <article key={f.title} className={`case-card relative rounded-3xl p-6 md:p-7 bg-card/90 border border-border shadow-2xl transition-all duration-300 will-change-transform hover:-translate-y-0.5 group animate-fade-slide-in ${delays[index]} ${layoutVariants[index]}`}>
               {f.layout === 'image-left' ? (
                 <div className="grid md:grid-cols-5 gap-4 md:gap-6 items-center">
                   <div className="md:col-span-3">
