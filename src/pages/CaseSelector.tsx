@@ -83,7 +83,8 @@ const CaseSelector: React.FC = () => {
         ref={ref}
         role="button"
         tabIndex={0}
-        onClick={() => {
+        onClick={(e) => {
+          e.preventDefault();
           if (index === 0) {
             navigate(START_ROUTE);
           } else {
