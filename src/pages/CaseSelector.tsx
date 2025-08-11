@@ -32,8 +32,8 @@ const CaseSelector: React.FC = () => {
     description: 'Deploy AI solutions that adapt quickly, learn fast, and scale with your needs.',
     icon: '✖',
     layout: 'image-left',
-    imageSrc: '/placeholder.svg',
-    imageAlt: 'Futuristic robot by a window'
+    imageSrc: '/lovable-uploads/8a0b7d5e-9544-484e-9e89-f412133e7ea5.png',
+    imageAlt: 'AI collaboration illustration with people and documents'
   }, {
     title: 'Automated Workflows',
     description: 'Streamline tasks and boost efficiency with scalable AI-powered automation.',
