@@ -49,8 +49,8 @@ const CaseSelector: React.FC = () => {
     description: 'Enhance customer experience with always-on virtual assistants.',
     icon: '💬',
     layout: 'image-left',
-    imageSrc: '/placeholder.svg',
-    imageAlt: 'Cute assistant robot in a living room'
+    imageSrc: '/lovable-uploads/34881303-5244-4b7f-851e-6ae67e2dba5a.png',
+    imageAlt: 'Customer support illustration with people and care symbols'
   }, {
     title: 'Security & Compliance',
     description: 'Keep data protected and meet regulatory standards with built-in safeguards.',
