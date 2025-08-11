@@ -1,3 +1,6 @@
-import { useToast, toast } from "@/hooks/use-toast";
+import { useToast as useBaseToast, toast as baseToast } from "@/hooks/use-toast";
 
-export { useToast, toast };
+export const useToast = useBaseToast;
+
+export const toast = (props: any = {}) =>
+  baseToast({ ...props, duration: props?.duration ?? 3500 });

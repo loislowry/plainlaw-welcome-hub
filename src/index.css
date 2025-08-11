@@ -229,3 +229,19 @@ All colors MUST be HSL.
     transform: translateY(-10px);
   }
 }
+
+/* Respect reduced motion: neutralize animations/transitions on cards */
+@media (prefers-reduced-motion: reduce) {
+  .animate-fade-slide-in,
+  .animate-float,
+  .animate-delay-100,
+  .animate-delay-200,
+  .animate-delay-300,
+  .animate-delay-400,
+  .animate-delay-500,
+  .transition-all,
+  .transition-transform {
+    animation: none !important;
+    transition: none !important;
+  }
+}

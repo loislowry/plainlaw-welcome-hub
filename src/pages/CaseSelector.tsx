@@ -3,6 +3,7 @@ import { useInView } from '@/hooks/useInView';
 import { Button } from '@/components/ui/button';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { useToast } from '@/components/ui/use-toast';
+import { useNavigate } from 'react-router-dom';
 const CaseSelector: React.FC = () => {
   useEffect(() => {
     document.title = 'All features in 1 tool | PlainLaw';
@@ -17,9 +18,9 @@ const CaseSelector: React.FC = () => {
       document.head.appendChild(m);
     }
   }, []);
-  const {
-    toast
-  } = useToast();
+  const { toast } = useToast();
+  const navigate = useNavigate();
+  const START_ROUTE = "/intake"; // route to start case
   type Layout = 'image-left' | 'text-only';
   interface Feature {
     title: string;
@@ -31,19 +32,19 @@ const CaseSelector: React.FC = () => {
   }
   const features: Feature[] = [{
     title: 'Domestic Violence Restraining Order (DV)',
-    description: 'Get court‑ready protection fast. Jura will collect your details, fill the forms, and guide filing and service.',
+    description: 'Get court‑ready protection fast. Jura will collect your details, fill the forms, and guide you to filing safely.',
     icon: '✖',
     layout: 'image-left',
     imageSrc: '/lovable-uploads/b286490e-d7c4-41a1-80f2-50938fd19e4c.png',
     imageAlt: 'Collaborative illustration showing people and documents'
   }, {
     title: 'Custody & Visitation',
-    description: 'Change or set up parenting arrangements. Jura will help draft your request, prepare supporting forms, and keep you on track for court.',
+    description: 'Set or change parenting time and decision‑making. Jura will help draft required forms and keep you on track for court.',
     icon: '⚙',
     layout: 'text-only'
   }, {
     title: 'Small Claims',
-    description: 'Resolve money disputes under $10,000. Jura will guide you in filing your claim, preparing evidence, and getting ready for your hearing.',
+    description: 'Resolve money disputes under $10,000. Jura helps prepare your claim, organize evidence, and get ready for the hearing.',
     icon: '↗',
     layout: 'text-only'
   }, {
@@ -78,12 +79,30 @@ const CaseSelector: React.FC = () => {
       ref,
       isInView
     } = useInView<HTMLDivElement>();
-    return <article ref={ref} onClick={() => {
-      if (index > 0) toast({
-        title: 'Coming soon',
-        description: 'This feature will be available shortly.'
-      });
-    }} className={`case-card relative rounded-3xl p-6 md:p-7 bg-card/90 border border-border shadow-2xl transition-all duration-300 will-change-transform hover:-translate-y-0.5 group ${isInView ? `animate-fade-slide-in ${delays[index]}` : 'opacity-0'} ${layoutVariants[index]} ${index > 0 ? 'cursor-not-allowed' : ''}`} aria-disabled={index > 0}>
+    return <article
+        ref={ref}
+        role="button"
+        tabIndex={0}
+        onClick={() => {
+          if (index === 0) {
+            navigate(START_ROUTE);
+          } else {
+            toast({ title: 'Coming soon', description: 'This case type will be available shortly.' });
+          }
+        }}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            if (index === 0) {
+              navigate(START_ROUTE);
+            } else {
+              toast({ title: 'Coming soon', description: 'This case type will be available shortly.' });
+            }
+          }
+        }}
+        className={`case-card relative rounded-3xl p-6 md:p-7 bg-card/90 border border-border shadow-2xl transition-all duration-300 will-change-transform hover:-translate-y-0.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 ${isInView ? `animate-fade-slide-in ${delays[index]}` : 'opacity-0'} ${layoutVariants[index]} ${index > 0 ? 'cursor-not-allowed' : ''}`}
+        aria-disabled={index > 0}>
+
         {index > 0 && <div className="absolute inset-0 z-10 rounded-3xl bg-card/60 backdrop-blur-md border border-border/60 flex items-center justify-center opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300 pointer-events-none">
             <span className="text-sm md:text-base font-medium text-foreground">Coming soon</span>
           </div>}
@@ -103,9 +122,16 @@ const CaseSelector: React.FC = () => {
             )}
             </div>
             <div className="md:col-span-2">
-              {index === 0 && <Button size="sm" className="mb-4 transition-transform duration-300 group-hover:-translate-y-0.5 bg-[#1c1e22] rounded-3xl">
+              {index === 0 && (
+                <Button
+                  size="sm"
+                  onClick={(e) => { e.stopPropagation(); navigate(START_ROUTE); }}
+                  className="mb-4 transition-transform duration-300 group-hover:-translate-y-0.5 bg-[#1c1e22] rounded-3xl"
+                >
                   Start my case
-                </Button>}
+                </Button>
+              )}
+
               <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-2">{index === 0 ? 'Restraining Order' : f.title}</h3>
               <p className="text-foreground-soft text-base">{f.description}</p>
             </div>
@@ -121,7 +147,7 @@ const CaseSelector: React.FC = () => {
       <main className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-16 md:py-[60px]">
         <header ref={headerRef} className={`text-center mb-10 md:mb-14 ${headerVisible ? 'animate-fade-slide-in animate-delay-100' : 'opacity-0'}`}>
           <h1 className="text-4xl text-foreground mb-4 font-semibold md:text-6xl">What you need help with today?</h1>
-          <p className="text-foreground-soft text-lg md:text-xl max-w-2xl mx-auto">Pick a case type to get a personalized checklist. You can switch later.</p>
+          <p className="text-foreground-soft text-lg md:text-xl max-w-2xl mx-auto">Choose your case type to get a calm, step-by-step checklist. You can switch later.</p>
         </header>
 
         <section className="grid md:grid-cols-6 gap-6 md:gap-8">
