@@ -36,8 +36,8 @@ const CaseSelector: React.FC = () => {
     imageSrc: '/lovable-uploads/b286490e-d7c4-41a1-80f2-50938fd19e4c.png',
     imageAlt: 'Collaborative illustration showing people and documents'
   }, {
-    title: 'Automated Workflows',
-    description: 'Streamline tasks and boost efficiency with scalable AI-powered automation.',
+    title: 'Custody & Visitation',
+    description: 'Change or set up parenting arrangements. Jura will help draft your request, prepare supporting forms, and keep you on track for court.',
     icon: '⚙',
     layout: 'text-only'
   }, {
