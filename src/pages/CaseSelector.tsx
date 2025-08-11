@@ -78,13 +78,13 @@ const CaseSelector: React.FC = () => {
     const {
       ref,
       isInView
-    } = useInView<HTMLDivElement>();
-    return <article
+    } = useInView<HTMLButtonElement>();
+    return <button
+        type="button"
         ref={ref}
-        role="button"
-        tabIndex={0}
         onClick={(e) => {
           e.preventDefault();
+          e.stopPropagation();
           if (index === 0) {
             navigate(START_ROUTE);
           } else {
@@ -94,6 +94,7 @@ const CaseSelector: React.FC = () => {
         onKeyDown={(e) => {
           if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
+            e.stopPropagation();
             if (index === 0) {
               navigate(START_ROUTE);
             } else {
@@ -101,8 +102,15 @@ const CaseSelector: React.FC = () => {
             }
           }
         }}
+        onClickCapture={(e) => {
+          if (index > 0) {
+            e.preventDefault();
+            e.stopPropagation();
+          }
+        }}
         className={`case-card relative rounded-3xl p-6 md:p-7 bg-card/90 border border-border shadow-2xl transition-all duration-300 will-change-transform hover:-translate-y-0.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 ${isInView ? `animate-fade-slide-in ${delays[index]}` : 'opacity-0'} ${layoutVariants[index]} ${index > 0 ? 'cursor-not-allowed' : ''}`}
         aria-disabled={index > 0}>
+
 
         {index > 0 && <div className="absolute inset-0 z-10 rounded-3xl bg-card/60 backdrop-blur-md border border-border/60 flex items-center justify-center opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300 pointer-events-none">
             <span className="text-sm md:text-base font-medium text-foreground">Coming soon</span>
@@ -142,7 +150,7 @@ const CaseSelector: React.FC = () => {
               <p className="text-foreground-soft text-base md:text-lg text-left">{f.description}</p>
             </div>
           </div>}
-      </article>;
+      </button>;
   };
   return <div className="min-h-screen bg-background">
       <main className="max-w-6xl mx-auto px-6 sm:px-8 lg:px-12 py-16 md:py-[60px]">
