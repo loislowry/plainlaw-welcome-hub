@@ -46,8 +46,8 @@ const CaseSelector: React.FC = () => {
     icon: '↗',
     layout: 'text-only'
   }, {
-    title: 'AI-Powered Support',
-    description: 'Enhance customer experience with always-on virtual assistants.',
+    title: 'Divorce & Family Law',
+    description: 'Whether starting or responding to a divorce, Jura will help organize your information, prepare financial disclosures, and complete the right forms.',
     icon: '💬',
     layout: 'image-left',
     imageSrc: '/lovable-uploads/34881303-5244-4b7f-851e-6ae67e2dba5a.png',
