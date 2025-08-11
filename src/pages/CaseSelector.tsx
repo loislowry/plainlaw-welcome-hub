@@ -41,8 +41,8 @@ const CaseSelector: React.FC = () => {
     icon: '⚙',
     layout: 'text-only'
   }, {
-    title: 'Insightful Analytics',
-    description: 'Gain deep, real-time insights to guide smarter strategies and growth.',
+    title: 'Small Claims',
+    description: 'Resolve money disputes under $10,000. Jura will guide you in filing your claim, preparing evidence, and getting ready for your hearing.',
     icon: '↗',
     layout: 'text-only'
   }, {
@@ -59,7 +59,7 @@ const CaseSelector: React.FC = () => {
     layout: 'text-only'
   }];
   const delays = ['animate-delay-100', 'animate-delay-200', 'animate-delay-300', 'animate-delay-400', 'animate-delay-500'];
-  const layoutVariants = ['md:col-span-4 md:min-h-[16rem]', 'md:col-span-2 md:min-h-[12rem]', 'md:col-span-3 md:min-h-[14rem]', 'md:col-span-3 md:min-h-[18rem]', 'md:col-span-6 md:min-h-[14rem]'];
+  const layoutVariants = ['md:col-span-4 md:min-h-[16rem]', 'md:col-span-2 md:min-h-[12rem]', 'md:col-span-3 md:min-h-[10rem]', 'md:col-span-3 md:min-h-[18rem]', 'md:col-span-6 md:min-h-[14rem]'];
 
   // Scroll reveal: header + cards
   const {
