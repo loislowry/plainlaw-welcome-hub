@@ -29,8 +29,8 @@ const CaseSelector: React.FC = () => {
     imageAlt?: string;
   }
   const features: Feature[] = [{
-    title: 'Cutting-Edge AI',
-    description: 'Deploy AI solutions that adapt quickly, learn fast, and scale with your needs.',
+    title: 'Domestic Violence Restraining Order (DV)',
+    description: 'Get court‑ready protection fast. Jura will collect your details, fill the forms, and guide filing and service.',
     icon: '✖',
     layout: 'image-left',
     imageSrc: '/lovable-uploads/b286490e-d7c4-41a1-80f2-50938fd19e4c.png',
