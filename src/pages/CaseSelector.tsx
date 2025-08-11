@@ -102,7 +102,7 @@ const CaseSelector: React.FC = () => {
         </section>
 
         <div className="mt-10 md:mt-14 flex items-center justify-center gap-4">
-          <Button size="lg" className="animate-fade-slide-in animate-delay-300 bg-[#1c1e22] rounded-3xl">I Just Wanna Chat Ai</Button>
+          
           
         </div>
       </main>
