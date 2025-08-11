@@ -60,7 +60,7 @@ const CaseSelector: React.FC = () => {
     layout: 'text-only'
   }];
   const delays = ['animate-delay-100', 'animate-delay-200', 'animate-delay-300', 'animate-delay-400', 'animate-delay-500'];
-  const layoutVariants = ['md:col-span-4 md:min-h-[16rem]', 'md:col-span-2 md:min-h-[12rem]', 'md:col-span-3 md:min-h-[10rem]', 'md:col-span-3 md:min-h-[18rem]', 'md:col-span-6 md:min-h-[14rem]'];
+  const layoutVariants = ['md:col-span-4', 'md:col-span-2', 'md:col-span-3', 'md:col-span-3', 'md:col-span-6'];
 
   // Scroll reveal: header + cards
   const {
@@ -111,8 +111,8 @@ const CaseSelector: React.FC = () => {
             </div>
           </div> : <div className="flex items-start gap-4">
             <div>
-              <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-2">{f.title}</h3>
-              <p className="text-foreground-soft text-base text-left">{f.description}</p>
+              <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-2">{f.title}</h3>
+              <p className="text-foreground-soft text-base md:text-lg text-left">{f.description}</p>
             </div>
           </div>}
       </article>;
