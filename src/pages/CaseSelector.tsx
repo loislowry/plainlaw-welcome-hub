@@ -94,7 +94,7 @@ const CaseSelector: React.FC = () => {
               {index === 0 && <Button size="sm" className="mb-4 transition-transform duration-300 group-hover:-translate-y-0.5 bg-[#1c1e22] rounded-3xl">
                   Start my case
                 </Button>}
-              <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-2">{f.title}</h3>
+              <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-2">{index === 0 ? 'Restraining Order' : f.title}</h3>
               <p className="text-foreground-soft text-base">{f.description}</p>
             </div>
           </div> : <div className="flex items-start gap-4">
