@@ -22,7 +22,7 @@ const CaseCategoryCard: React.FC<CaseCategoryCardProps> = ({
       aria-label={`Select ${title} - ${description}`}
     >
       <div className="flex items-start space-x-6">
-        <div className="text-5xl md:text-6xl flex-shrink-0 transition-all duration-500 group-hover:scale-125 group-hover:rotate-12 animate-float">
+        <div className="text-5xl md:text-6xl flex-shrink-0 transition-all duration-500 group-hover:scale-125 group-hover:rotate-12 animate-float will-change-transform">
           {icon}
         </div>
         <div className="flex-1 min-w-0">

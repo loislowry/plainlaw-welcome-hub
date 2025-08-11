@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { useInView } from '@/hooks/useInView';
 import { Button } from '@/components/ui/button';
+import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { useToast } from '@/components/ui/use-toast';
 const CaseSelector: React.FC = () => {
   useEffect(() => {
@@ -88,7 +89,18 @@ const CaseSelector: React.FC = () => {
           </div>}
         {f.layout === 'image-left' ? <div className="grid md:grid-cols-5 gap-4 md:gap-6 items-center">
             <div className="md:col-span-3">
-              {f.imageSrc && <img src={f.imageSrc} alt={f.imageAlt || f.title} loading="lazy" className="w-full h-40 md:h-44 object-cover rounded-xl shadow-2xl transition-transform duration-500 ease-out group-hover:scale-[1.02]" />}
+{f.imageSrc && (
+              <div className="rounded-xl shadow-2xl overflow-hidden">
+                <AspectRatio ratio={16 / 9}>
+                  <img
+                    src={f.imageSrc}
+                    alt={f.imageAlt || f.title}
+                    loading="lazy"
+                    className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
+                  />
+                </AspectRatio>
+              </div>
+            )}
             </div>
             <div className="md:col-span-2">
               {index === 0 && <Button size="sm" className="mb-4 transition-transform duration-300 group-hover:-translate-y-0.5 bg-[#1c1e22] rounded-3xl">
