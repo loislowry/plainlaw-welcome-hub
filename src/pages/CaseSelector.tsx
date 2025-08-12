@@ -22,7 +22,7 @@ const CaseSelector: React.FC = () => {
     toast
   } = useToast();
   const navigate = useNavigate();
-  const START_ROUTE = "/intake"; // route to start case
+  const START_ROUTE = "/case/intro/dv"; // route to start case
   type Layout = 'image-left' | 'text-only';
   interface Feature {
     title: string;
