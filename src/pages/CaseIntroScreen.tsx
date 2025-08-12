@@ -1,9 +1,10 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
 import { Sparkles, CheckCircle2 } from "lucide-react";
 
-const FULL_TEXT = "I’m Jura. I’ll walk with you through this — calmly and step by step. I’ll ask you several questions to understand where you are now, and where you may need to go based on your situation.";
+const FULL_TEXT =
+  "I’m Jura. I’ll walk with you through this — calmly and step by step. I’ll ask you several questions to understand where you are now, and where you may need to go based on your situation.";
 
 function usePrefersReducedMotion() {
   const [reduced, setReduced] = useState(false);
@@ -18,13 +19,36 @@ function usePrefersReducedMotion() {
   return reduced;
 }
 
-function useTypedText(text: string, speed = 22) {
-  const reduced = usePrefersReducedMotion();
+type TypedTextProps<T extends keyof JSX.IntrinsicElements = "span"> = {
+  text: string;
+  speed?: number;
+  active?: boolean;
+  reduced?: boolean;
+  onDone?: () => void;
+  as?: T;
+  className?: string;
+  ariaLive?: "polite" | "assertive" | "off";
+};
+
+function TypedText<T extends keyof JSX.IntrinsicElements = "span">({
+  text,
+  speed = 22,
+  active = true,
+  reduced,
+  onDone,
+  as,
+  className,
+  ariaLive,
+}: TypedTextProps<T>) {
   const [display, setDisplay] = useState("");
+  const Tag = (as || "span") as any;
 
   useEffect(() => {
+    if (!active) return;
+
     if (reduced) {
       setDisplay(text);
+      onDone?.();
       return;
     }
 
@@ -33,13 +57,19 @@ function useTypedText(text: string, speed = 22) {
     const id = window.setInterval(() => {
       i += 1;
       setDisplay(text.slice(0, i));
-      if (i >= text.length) window.clearInterval(id);
+      if (i >= text.length) {
+        window.clearInterval(id);
+        onDone?.();
+      }
     }, speed);
-
     return () => window.clearInterval(id);
-  }, [text, reduced, speed]);
+  }, [active, reduced, speed, text, onDone]);
 
-  return display;
+  return (
+    <Tag className={className} aria-live={ariaLive}>
+      {active || reduced ? display : ""}
+    </Tag>
+  );
 }
 
 const steps = [
@@ -52,7 +82,8 @@ const steps = [
 
 const CaseIntroScreen: React.FC = () => {
   const navigate = useNavigate();
-  const typed = useTypedText(FULL_TEXT);
+  const reduced = usePrefersReducedMotion();
+  const [step, setStep] = useState(0); // 0: heading, 1: paragraph, 2.. bullets
 
   // SEO: title + meta description + canonical
   useEffect(() => {
@@ -77,11 +108,13 @@ const CaseIntroScreen: React.FC = () => {
     canonical.setAttribute("href", href);
   }, []);
 
+  const advance = reduced ? undefined : () => setStep((s) => s + 1);
+
   return (
     <div className="min-h-screen bg-background">
       <main className="max-w-2xl mx-auto px-6 py-16 md:py-24">
-        <header className="text-center space-y-5 md:space-y-7">
-          <div className="flex justify-center">
+        <header className="space-y-5 md:space-y-7">
+          <div className="flex justify-start">
             <div
               aria-hidden
               className="inline-flex items-center justify-center rounded-full w-10 h-10 md:w-12 md:h-12 bg-accent/60 text-primary shadow"
@@ -89,40 +122,49 @@ const CaseIntroScreen: React.FC = () => {
               <Sparkles className="size-5 md:size-6" />
             </div>
           </div>
-          <h1 className="text-3xl md:text-5xl font-semibold text-foreground">
-            You chose: Domestic Violence Restraining Order
-          </h1>
+          <TypedText
+            as="h1"
+            className="text-3xl md:text-5xl font-semibold text-foreground text-left"
+            text="You chose: Domestic Violence Restraining Order"
+            reduced={reduced}
+            active={reduced || step === 0}
+            onDone={advance}
+            ariaLive="polite"
+          />
         </header>
 
         <section className="mt-6 md:mt-8">
-          <p
-            role="status"
-            aria-live="polite"
-            className="text-lg md:text-xl text-foreground-soft text-center"
-          >
-            {typed}
-          </p>
+          <TypedText
+            as="p"
+            className="text-lg md:text-xl text-foreground-soft text-left"
+            text={FULL_TEXT}
+            reduced={reduced}
+            active={reduced || step === 1}
+            onDone={advance}
+            ariaLive="polite"
+          />
         </section>
 
         <section className="mt-8 md:mt-10">
           <ul className="space-y-3 md:space-y-4">
-            {steps.map((s) => (
+            {steps.map((s, i) => (
               <li key={s} className="flex items-start gap-3">
                 <CheckCircle2 aria-hidden className="mt-0.5 text-primary" />
-                <span className="text-base md:text-lg text-foreground text-left">
-                  {s}
-                </span>
+                <TypedText
+                  as="span"
+                  className="text-base md:text-lg text-foreground text-left"
+                  text={s}
+                  reduced={reduced}
+                  active={reduced || step === 2 + i}
+                  onDone={advance}
+                />
               </li>
             ))}
           </ul>
         </section>
 
         <div className="mt-10 md:mt-12 flex justify-center">
-          <Button
-            size="lg"
-            className="rounded-full"
-            onClick={() => navigate("/intake")}
-          >
+          <Button size="lg" className="rounded-full" onClick={() => navigate("/intake")}>
             I understand
           </Button>
         </div>
