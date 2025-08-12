@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { Sparkles, CheckCircle2 } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 const FULL_TEXT = "I’m Jura. I’ll walk with you through this — calmly and step by step. I’ll ask you several questions to understand where you are now, and where you may need to go based on your situation.";
 function usePrefersReducedMotion() {
   const [reduced, setReduced] = useState(false);
@@ -92,7 +92,43 @@ const CaseIntroScreen: React.FC = () => {
         <header className="space-y-5 md:space-y-7">
           <div className="flex justify-start">
             <div aria-hidden className="inline-flex items-center justify-center rounded-full w-10 h-10 md:w-12 md:h-12 bg-accent/60 text-primary shadow">
-              <Sparkles className="size-5 md:size-6" />
+              <svg
+                className="w-8 h-8 md:w-9 md:h-9"
+                viewBox="0 0 100 100"
+                xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-labelledby="title desc"
+                focusable="false"
+              >
+                <title id="title">Restraining Order Icon</title>
+                <desc id="desc">
+                  A hand in a stop gesture with a small document, drawn in uneven hand-drawn lines, on a pastel circle background.
+                </desc>
+                <circle cx="50" cy="50" r="48" fill="#F6E4D9" />
+                <path
+                  d="M30 70
+            Q28 55 32 40
+            Q34 33 38 36
+            Q40 28 44 30
+            Q48 24 50 28
+            Q54 22 57 27
+            Q60 25 63 32
+            Q66 38 65 48
+            Q64 60 62 68
+            Q60 75 54 74
+            Q50 73 48 66
+            Q46 70 42 70
+            Q38 70 36 66"
+                  stroke="#111"
+                  strokeWidth="4"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  fill="none"
+                />
+                <rect x="65" y="60" width="18" height="22" rx="2" stroke="#111" strokeWidth="3" fill="none" />
+                <line x1="68" y1="66" x2="80" y2="66" stroke="#111" strokeWidth="2" />
+                <line x1="68" y1="72" x2="80" y2="72" stroke="#111" strokeWidth="2" />
+              </svg>
             </div>
           </div>
           <TypedText as="h1" className="text-3xl md:text-5xl font-semibold text-foreground text-left" text="You chose: Domestic Violence Restraining Order" reduced={reduced} active={reduced || step === 0} onDone={advance} ariaLive="polite" speed={30} />
