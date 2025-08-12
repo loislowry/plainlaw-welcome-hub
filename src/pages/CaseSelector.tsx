@@ -18,7 +18,9 @@ const CaseSelector: React.FC = () => {
       document.head.appendChild(m);
     }
   }, []);
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const navigate = useNavigate();
   const START_ROUTE = "/intake"; // route to start case
   type Layout = 'image-left' | 'text-only';
@@ -79,37 +81,36 @@ const CaseSelector: React.FC = () => {
       ref,
       isInView
     } = useInView<HTMLButtonElement>();
-    return <button
-        type="button"
-        ref={ref}
-        onClick={(e) => {
-          e.preventDefault();
-          e.stopPropagation();
-          if (index === 0) {
-            navigate(START_ROUTE);
-          } else {
-            toast({ title: 'Coming soon', description: 'This case type will be available shortly.' });
-          }
-        }}
-        onKeyDown={(e) => {
-          if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            e.stopPropagation();
-            if (index === 0) {
-              navigate(START_ROUTE);
-            } else {
-              toast({ title: 'Coming soon', description: 'This case type will be available shortly.' });
-            }
-          }
-        }}
-        onClickCapture={(e) => {
-          if (index > 0) {
-            e.preventDefault();
-            e.stopPropagation();
-          }
-        }}
-        className={`case-card relative rounded-3xl p-6 md:p-7 bg-card/90 border border-border shadow-2xl transition-all duration-300 will-change-transform hover:-translate-y-0.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 ${isInView ? `animate-fade-slide-in ${delays[index]}` : 'opacity-0'} ${layoutVariants[index]} ${index > 0 ? 'cursor-not-allowed' : ''}`}
-        aria-disabled={index > 0}>
+    return <button type="button" ref={ref} onClick={e => {
+      e.preventDefault();
+      e.stopPropagation();
+      if (index === 0) {
+        navigate(START_ROUTE);
+      } else {
+        toast({
+          title: 'Coming soon',
+          description: 'This case type will be available shortly.'
+        });
+      }
+    }} onKeyDown={e => {
+      if (e.key === 'Enter' || e.key === ' ') {
+        e.preventDefault();
+        e.stopPropagation();
+        if (index === 0) {
+          navigate(START_ROUTE);
+        } else {
+          toast({
+            title: 'Coming soon',
+            description: 'This case type will be available shortly.'
+          });
+        }
+      }
+    }} onClickCapture={e => {
+      if (index > 0) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+    }} className={`case-card relative rounded-3xl p-6 md:p-7 bg-card/90 border border-border shadow-2xl transition-all duration-300 will-change-transform hover:-translate-y-0.5 group focus:outline-none focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-4 ${isInView ? `animate-fade-slide-in ${delays[index]}` : 'opacity-0'} ${layoutVariants[index]} ${index > 0 ? 'cursor-not-allowed' : ''}`} aria-disabled={index > 0}>
 
 
         {index > 0 && <div className="absolute inset-0 z-10 rounded-3xl bg-card/60 backdrop-blur-md border border-border/60 flex items-center justify-center opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-300 pointer-events-none">
@@ -117,36 +118,26 @@ const CaseSelector: React.FC = () => {
           </div>}
         {f.layout === 'image-left' ? <div className="grid md:grid-cols-5 gap-4 md:gap-6 items-center">
             <div className="md:col-span-3">
-{f.imageSrc && (
-              <div className="rounded-xl shadow-2xl overflow-hidden">
+          {f.imageSrc && <div className="rounded-xl shadow-2xl overflow-hidden">
                 <AspectRatio ratio={16 / 9}>
-                  <img
-                    src={f.imageSrc}
-                    alt={f.imageAlt || f.title}
-                    loading="lazy"
-                    className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]"
-                  />
+                  <img src={f.imageSrc} alt={f.imageAlt || f.title} loading="lazy" className="w-full h-full object-cover transition-transform duration-500 ease-out group-hover:scale-[1.02]" />
                 </AspectRatio>
-              </div>
-            )}
+              </div>}
             </div>
             <div className="md:col-span-2">
-              {index === 0 && (
-                <Button
-                  size="sm"
-                  onClick={(e) => { e.stopPropagation(); navigate(START_ROUTE); }}
-                  className="mb-4 transition-transform duration-300 group-hover:-translate-y-0.5 bg-[#1c1e22] rounded-3xl"
-                >
+              {index === 0 && <Button size="sm" onClick={e => {
+            e.stopPropagation();
+            navigate(START_ROUTE);
+          }} className="mb-4 transition-transform duration-300 group-hover:-translate-y-0.5 bg-[#1c1e22] rounded-3xl">
                   Start my case
-                </Button>
-              )}
+                </Button>}
 
-              <h3 className="text-xl md:text-2xl font-semibold text-foreground mb-2">{index === 0 ? 'Restraining Order' : f.title}</h3>
-              <p className="text-foreground-soft text-base">{f.description}</p>
+              <h3 className="text-xl font-semibold text-foreground mb-2 text-left md:text-2xl">{index === 0 ? 'Restraining Order' : f.title}</h3>
+              <p className="text-foreground-soft text-base text-left">{f.description}</p>
             </div>
           </div> : <div className="flex items-start gap-4">
             <div>
-              <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-2">{f.title}</h3>
+              <h3 className="text-2xl md:text-3xl font-semibold text-foreground mb-2 text-left">{f.title}</h3>
               <p className="text-foreground-soft text-base md:text-lg text-left">{f.description}</p>
             </div>
           </div>}
