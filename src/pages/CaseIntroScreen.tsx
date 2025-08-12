@@ -32,7 +32,7 @@ type TypedTextProps<T extends keyof JSX.IntrinsicElements = "span"> = {
 
 function TypedText<T extends keyof JSX.IntrinsicElements = "span">({
   text,
-  speed = 22,
+  speed = 30,
   active = true,
   reduced,
   onDone,
@@ -67,7 +67,7 @@ function TypedText<T extends keyof JSX.IntrinsicElements = "span">({
 
   return (
     <Tag className={className} aria-live={ariaLive}>
-      {active || reduced ? display : ""}
+      {display}
     </Tag>
   );
 }
@@ -130,18 +130,20 @@ const CaseIntroScreen: React.FC = () => {
             active={reduced || step === 0}
             onDone={advance}
             ariaLive="polite"
+            speed={30}
           />
         </header>
 
         <section className="mt-6 md:mt-8">
           <TypedText
             as="p"
-            className="text-lg md:text-xl text-foreground-soft text-left"
+            className="text-lg md:text-xl text-foreground-soft text-left leading-relaxed"
             text={FULL_TEXT}
             reduced={reduced}
             active={reduced || step === 1}
             onDone={advance}
             ariaLive="polite"
+            speed={28}
           />
         </section>
 
@@ -152,11 +154,12 @@ const CaseIntroScreen: React.FC = () => {
                 <CheckCircle2 aria-hidden className="mt-0.5 text-primary" />
                 <TypedText
                   as="span"
-                  className="text-base md:text-lg text-foreground text-left"
+                  className="text-base md:text-lg text-foreground text-left leading-relaxed"
                   text={s}
                   reduced={reduced}
                   active={reduced || step === 2 + i}
                   onDone={advance}
+                  speed={26}
                 />
               </li>
             ))}
