@@ -92,7 +92,7 @@ const CaseIntroScreen: React.FC = () => {
         <header className="space-y-5 md:space-y-7">
           <div className="flex justify-start">
             <div aria-hidden className="inline-flex items-center justify-center rounded-full w-10 h-10 md:w-12 md:h-12 text-primary shadow bg-[#1c1e22]">
-              <svg className="w-8 h-8 md:w-9 md:h-9" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" focusable="false">
+              <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" focusable="false" className="w-10 h-10 md:w-12 md:h-12\n">
                 <title id="title">Restraining Order Icon</title>
                 <desc id="desc">
                   A hand in a stop gesture with a small document, drawn in uneven hand-drawn lines, on a pastel circle background.
