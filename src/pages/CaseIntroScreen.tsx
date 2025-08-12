@@ -134,43 +134,51 @@ const CaseIntroScreen: React.FC = () => {
           />
         </header>
 
-        <section className="mt-6 md:mt-8">
-          <TypedText
-            as="p"
-            className="text-lg md:text-xl text-foreground-soft text-left leading-relaxed"
-            text={FULL_TEXT}
-            reduced={reduced}
-            active={reduced || step === 1}
-            onDone={advance}
-            ariaLive="polite"
-            speed={28}
-          />
-        </section>
+        {(reduced || step >= 1) && (
+          <section className="mt-6 md:mt-8">
+            <TypedText
+              as="p"
+              className="text-lg md:text-xl text-foreground-soft text-left leading-relaxed"
+              text={FULL_TEXT}
+              reduced={reduced}
+              active={reduced || step === 1}
+              onDone={advance}
+              ariaLive="polite"
+              speed={28}
+            />
+          </section>
+        )}
 
-        <section className="mt-8 md:mt-10">
-          <ul className="space-y-3 md:space-y-4">
-            {steps.map((s, i) => (
-              <li key={s} className="flex items-start gap-3">
-                <CheckCircle2 aria-hidden className="mt-0.5 text-primary" />
-                <TypedText
-                  as="span"
-                  className="text-base md:text-lg text-foreground text-left leading-relaxed"
-                  text={s}
-                  reduced={reduced}
-                  active={reduced || step === 2 + i}
-                  onDone={advance}
-                  speed={26}
-                />
-              </li>
-            ))}
-          </ul>
-        </section>
+        {(reduced || step >= 2) && (
+          <section className="mt-8 md:mt-10">
+            <ul className="space-y-3 md:space-y-4">
+              {steps.map((s, i) => (
+                (reduced || step >= 2 + i) && (
+                  <li key={s} className="flex items-start gap-3">
+                    <CheckCircle2 aria-hidden className="mt-0.5 text-primary" />
+                    <TypedText
+                      as="span"
+                      className="text-base md:text-lg text-foreground text-left leading-relaxed"
+                      text={s}
+                      reduced={reduced}
+                      active={reduced || step === 2 + i}
+                      onDone={advance}
+                      speed={26}
+                    />
+                  </li>
+                )
+              ))}
+            </ul>
+          </section>
+        )}
 
-        <div className="mt-10 md:mt-12 flex justify-center">
-          <Button size="lg" className="rounded-full" onClick={() => navigate("/intake")}>
-            I understand
-          </Button>
-        </div>
+        {(reduced || step >= 2 + steps.length) && (
+          <div className="mt-10 md:mt-12 flex justify-center">
+            <Button size="lg" className="rounded-full" onClick={() => navigate("/intake")}>
+              I understand
+            </Button>
+          </div>
+        )}
       </main>
     </div>
   );
