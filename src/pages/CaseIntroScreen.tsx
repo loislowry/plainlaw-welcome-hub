@@ -91,22 +91,14 @@ const CaseIntroScreen: React.FC = () => {
       <main className="max-w-2xl mx-auto px-6 py-16 md:py-24">
         <header className="space-y-5 md:space-y-7">
           <div className="flex justify-start">
-            <div aria-hidden className="inline-flex items-center justify-center rounded-full w-10 h-10 md:w-12 md:h-12 bg-accent/60 text-primary shadow">
-              <svg
-                className="w-8 h-8 md:w-9 md:h-9"
-                viewBox="0 0 100 100"
-                xmlns="http://www.w3.org/2000/svg"
-                role="img"
-                aria-labelledby="title desc"
-                focusable="false"
-              >
+            <div aria-hidden className="inline-flex items-center justify-center rounded-full w-10 h-10 md:w-12 md:h-12 text-primary shadow bg-[#1c1e22]">
+              <svg className="w-8 h-8 md:w-9 md:h-9" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" focusable="false">
                 <title id="title">Restraining Order Icon</title>
                 <desc id="desc">
                   A hand in a stop gesture with a small document, drawn in uneven hand-drawn lines, on a pastel circle background.
                 </desc>
                 <circle cx="50" cy="50" r="48" fill="#F6E4D9" />
-                <path
-                  d="M30 70
+                <path d="M30 70
             Q28 55 32 40
             Q34 33 38 36
             Q40 28 44 30
@@ -118,13 +110,7 @@ const CaseIntroScreen: React.FC = () => {
             Q60 75 54 74
             Q50 73 48 66
             Q46 70 42 70
-            Q38 70 36 66"
-                  stroke="#111"
-                  strokeWidth="4"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  fill="none"
-                />
+            Q38 70 36 66" stroke="#111" strokeWidth="4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                 <rect x="65" y="60" width="18" height="22" rx="2" stroke="#111" strokeWidth="3" fill="none" />
                 <line x1="68" y1="66" x2="80" y2="66" stroke="#111" strokeWidth="2" />
                 <line x1="68" y1="72" x2="80" y2="72" stroke="#111" strokeWidth="2" />
