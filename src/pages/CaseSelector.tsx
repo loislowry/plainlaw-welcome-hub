@@ -43,33 +43,36 @@ const CaseSelector: React.FC = () => {
       title: 'Restraining Order',
       description: 'Start your case with Jura\'s help.',
       available: true,
-      bgColor: 'bg-gradient-to-br from-blue-400 to-blue-600'
+      bgColor: 'bg-[#1c1e22]'
     },
     {
       title: 'Custody & Visitation',
       description: 'Coming soon',
       available: false,
-      bgColor: 'bg-gradient-to-br from-pink-400 to-pink-600'
+      bgColor: 'bg-white'
     },
     {
       title: 'Divorce & Family Law',
       description: 'Coming soon',
       available: false,
-      bgColor: 'bg-gradient-to-br from-yellow-400 to-yellow-600'
+      bgColor: 'bg-[#1c1e22]'
     },
     {
       title: 'Small Claims',
       description: 'Coming soon',
       available: false,
-      bgColor: 'bg-gradient-to-br from-green-400 to-green-600'
+      bgColor: 'bg-white'
     },
     {
       title: 'Evictions',
       description: 'Coming soon',
       available: false,
-      bgColor: 'bg-gradient-to-br from-purple-400 to-purple-600'
+      bgColor: 'bg-[#1c1e22]'
     }
   ];
+
+  // Uneven card heights for natural look
+  const cardHeights = ['h-72', 'h-80', 'h-76', 'h-84', 'h-78'];
 
   // Scroll reveal: header + carousel
   const {
@@ -90,6 +93,10 @@ const CaseSelector: React.FC = () => {
 
   const CaseCard: React.FC<{ caseItem: CaseType; index: number }> = ({ caseItem, index }) => {
     const { ref, isInView } = useInView<HTMLDivElement>();
+    const cardHeight = cardHeights[index % cardHeights.length];
+    const isWhiteBg = caseItem.bgColor.includes('white');
+    const textColor = isWhiteBg ? 'text-gray-900' : 'text-white';
+    const starColor = isWhiteBg ? 'text-yellow-500' : 'text-yellow-300';
     
     return (
       <div
@@ -98,13 +105,14 @@ const CaseSelector: React.FC = () => {
         onClick={() => handleCaseClick(caseItem, index)}
       >
         <div className={`
-          relative h-80 rounded-2xl p-6 shadow-lg transition-all duration-300 
-          hover:shadow-xl hover:-translate-y-1 text-white overflow-hidden
-          ${caseItem.bgColor}
+          relative ${cardHeight} rounded-2xl p-6 shadow-lg transition-all duration-300 
+          hover:shadow-xl hover:-translate-y-1 overflow-hidden border
+          ${caseItem.bgColor} ${textColor}
+          ${isWhiteBg ? 'border-gray-200 shadow-gray-200/50' : 'border-gray-700 shadow-black/20'}
         `}>
           {/* Coming Soon Overlay */}
           {!caseItem.available && (
-            <div className="absolute inset-0 bg-black/40 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl z-10">
+            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl z-10">
               <Badge variant="secondary" className="bg-white/90 text-gray-800 font-medium">
                 Coming Soon
               </Badge>
@@ -114,7 +122,7 @@ const CaseSelector: React.FC = () => {
           {/* Stars rating */}
           <div className="flex mb-4">
             {[...Array(5)].map((_, i) => (
-              <span key={i} className="text-yellow-300 text-lg">★</span>
+              <span key={i} className={`${starColor} text-lg`}>★</span>
             ))}
           </div>
           
@@ -124,7 +132,7 @@ const CaseSelector: React.FC = () => {
               {caseItem.title}
             </h3>
             
-            <p className="text-white/90 text-base leading-relaxed flex-grow">
+            <p className={`${isWhiteBg ? 'text-gray-600' : 'text-white/90'} text-base leading-relaxed flex-grow`}>
               {caseItem.available ? caseItem.description : 'This case type will be available soon with comprehensive guidance and support.'}
             </p>
             
@@ -132,7 +140,11 @@ const CaseSelector: React.FC = () => {
               <Button 
                 variant="secondary" 
                 size="sm"
-                className="self-start mt-auto bg-white/20 hover:bg-white/30 text-white border-white/30"
+                className={`self-start mt-auto ${
+                  isWhiteBg 
+                    ? 'bg-gray-900 hover:bg-gray-800 text-white' 
+                    : 'bg-white/20 hover:bg-white/30 text-white border-white/30'
+                }`}
                 onClick={(e) => {
                   e.stopPropagation();
                   navigate(START_ROUTE);
@@ -174,8 +186,8 @@ const CaseSelector: React.FC = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="hidden md:flex -left-12" />
-            <CarouselNext className="hidden md:flex -right-12" />
+            <CarouselPrevious className="-left-12" />
+            <CarouselNext className="-right-12" />
           </Carousel>
         </section>
 
