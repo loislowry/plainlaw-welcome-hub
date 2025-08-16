@@ -34,27 +34,27 @@ const CaseSelector: React.FC = () => {
     title: 'Restraining Order',
     description: 'Start your case with Jura\'s help.',
     available: true,
-    bgColor: 'bg-white'
+    bgColor: 'bg-[#F9FAFB]/60'
   }, {
     title: 'Custody & Visitation',
     description: 'Coming soon',
     available: false,
-    bgColor: 'bg-white'
+    bgColor: 'bg-[#F1F5F9]/60'
   }, {
     title: 'Divorce & Family Law',
     description: 'Coming soon',
     available: false,
-    bgColor: 'bg-white'
+    bgColor: 'bg-[#F8FAFC]/60'
   }, {
     title: 'Small Claims',
     description: 'Coming soon',
     available: false,
-    bgColor: 'bg-white'
+    bgColor: 'bg-[#F9FAFB]/60'
   }, {
     title: 'Evictions',
     description: 'Coming soon',
     available: false,
-    bgColor: 'bg-white'
+    bgColor: 'bg-[#F1F5F9]/60'
   }];
 
   // Uneven card heights for natural look - made bigger
@@ -97,13 +97,14 @@ const CaseSelector: React.FC = () => {
     }} onClick={() => handleCaseClick(caseItem, index)}>
         <div className={`
           relative ${cardHeight} rounded-[2rem] p-8 shadow-[0_12px_32px_rgba(2,6,23,0.08)] transition-all duration-500 
-          hover:shadow-3xl hover:-translate-y-2 hover:ring-4 hover:ring-slate-100 overflow-hidden border border-slate-200
-          ${caseItem.bgColor} ${textColor}
+          hover:shadow-3xl hover:-translate-y-2 overflow-hidden border
+          ${caseItem.bgColor} backdrop-blur-md ${textColor}
+          border-white/40
           transform-gpu will-change-transform
         `}>
           {/* Coming Soon Overlay */}
-          {!caseItem.available && <div className="absolute inset-0 bg-white/65 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[2rem] z-10">
-              <Badge variant="outline" className="bg-white border-slate-200 text-[#0F172A] font-medium px-6 py-2 text-lg rounded-2xl">
+          {!caseItem.available && <div className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[2rem] z-10">
+              <Badge variant="secondary" className="bg-white/90 text-gray-800 font-medium px-6 py-2 text-lg rounded-2xl">
                 Coming Soon
               </Badge>
             </div>}
