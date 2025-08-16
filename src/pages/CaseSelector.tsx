@@ -34,27 +34,27 @@ const CaseSelector: React.FC = () => {
     title: 'Restraining Order',
     description: 'Start your case with Jura\'s help.',
     available: true,
-    bgColor: 'bg-[#f5f5f5]'
+    bgColor: 'bg-[#F9FAFB]/60'
   }, {
     title: 'Custody & Visitation',
     description: 'Coming soon',
     available: false,
-    bgColor: 'bg-[#f2f2f1]'
+    bgColor: 'bg-[#F1F5F9]/60'
   }, {
     title: 'Divorce & Family Law',
     description: 'Coming soon',
     available: false,
-    bgColor: 'bg-white'
+    bgColor: 'bg-[#F8FAFC]/60'
   }, {
     title: 'Small Claims',
     description: 'Coming soon',
     available: false,
-    bgColor: 'bg-[#f5f5f5]'
+    bgColor: 'bg-[#F9FAFB]/60'
   }, {
     title: 'Evictions',
     description: 'Coming soon',
     available: false,
-    bgColor: 'bg-[#f2f2f1]'
+    bgColor: 'bg-[#F1F5F9]/60'
   }];
 
   // Uneven card heights for natural look - made bigger
@@ -87,7 +87,7 @@ const CaseSelector: React.FC = () => {
       isInView
     } = useInView<HTMLDivElement>();
     const cardHeight = cardHeights[index % cardHeights.length];
-    const textColor = 'text-gray-900'; // All backgrounds are light now
+    const textColor = 'text-[#0F172A]'; // Dark navy for headings
 
     // iPhone-style staggered animation delay
     const animationDelay = `${index * 150}ms`;
@@ -96,10 +96,10 @@ const CaseSelector: React.FC = () => {
       transitionDelay: isInView ? animationDelay : '0ms'
     }} onClick={() => handleCaseClick(caseItem, index)}>
         <div className={`
-          relative ${cardHeight} rounded-[2rem] p-8 shadow-2xl transition-all duration-500 
-          hover:shadow-3xl hover:-translate-y-2 overflow-hidden border-2
-          ${caseItem.bgColor} ${textColor}
-          border-gray-200 shadow-gray-300/30
+          relative ${cardHeight} rounded-[2rem] p-8 shadow-[0_12px_32px_rgba(2,6,23,0.08)] transition-all duration-500 
+          hover:shadow-3xl hover:-translate-y-2 overflow-hidden border
+          ${caseItem.bgColor} backdrop-blur-md ${textColor}
+          border-white/40
           transform-gpu will-change-transform
         `}>
           {/* Coming Soon Overlay */}
@@ -115,11 +115,11 @@ const CaseSelector: React.FC = () => {
               Restraining Order
             </h3>
             
-            <p className="text-gray-600 text-lg md:text-xl leading-relaxed flex-grow">
+            <p className="text-[#475569] text-lg md:text-xl leading-relaxed flex-grow">
               Start your case with Jura's help.
             </p>
             
-            {caseItem.available && <Button variant="secondary" size="lg" className="self-start mt-auto text-lg px-8 py-3 bg-gray-900 hover:bg-gray-800 text-white rounded-2xl" onClick={e => {
+            {caseItem.available && <Button variant="secondary" size="lg" className="self-start mt-auto text-lg px-8 py-3 bg-[#2563EB] hover:bg-[#1d4ed8] text-white rounded-2xl" onClick={e => {
             e.stopPropagation();
             navigate(START_ROUTE);
           }}>
@@ -129,13 +129,13 @@ const CaseSelector: React.FC = () => {
         </div>
       </div>;
   };
-  return <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 relative">
+  return <div className="min-h-screen bg-white relative">
       <main className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 md:py-24">
         <header ref={headerRef} className={`text-center mb-16 transition-all duration-700 ${headerVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold text-[#0F172A] mb-6">
             Select Your Case
           </h1>
-          <p className="text-foreground-soft text-xl md:text-2xl max-w-3xl mx-auto">
+          <p className="text-[#475569] text-xl md:text-2xl max-w-3xl mx-auto">
             Choose your legal case type and get personalized help with court documents and filing processes.
           </p>
         </header>
