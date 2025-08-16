@@ -57,8 +57,10 @@ const CaseSelector: React.FC = () => {
     bgColor: 'bg-[#f2f2f1]'
   }];
 
-  // Uneven card heights for natural look - made bigger
-  const cardHeights = ['h-96', 'h-[26rem]', 'h-[22rem]', 'h-[28rem]', 'h-[24rem]'];
+  // Staggered layout with varying heights and offsets for organic feel
+  const cardHeights = ['h-[420px] md:h-[440px]', 'h-[460px] md:h-[480px]', 'h-[430px] md:h-[450px]', 'h-[420px] md:h-[440px]', 'h-[460px] md:h-[480px]'];
+  const cardOffsets = ['md:translate-y-2', 'md:-translate-y-3', 'md:translate-y-1', 'md:translate-y-2', 'md:-translate-y-2'];
+  const tabletOffsets = ['sm:translate-y-[-8px]', 'sm:translate-y-[6px]', 'sm:translate-y-[-4px]', 'sm:translate-y-[8px]', 'sm:translate-y-[-6px]'];
 
   // Scroll reveal: header + carousel
   const {
@@ -87,55 +89,59 @@ const CaseSelector: React.FC = () => {
       isInView
     } = useInView<HTMLDivElement>();
     const cardHeight = cardHeights[index % cardHeights.length];
-    const textColor = 'text-gray-900'; // All backgrounds are light now
+    const cardOffset = cardOffsets[index % cardOffsets.length];
+    const tabletOffset = tabletOffsets[index % tabletOffsets.length];
 
     // iPhone-style staggered animation delay
     const animationDelay = `${index * 150}ms`;
-    return <div ref={ref} className={`relative group cursor-pointer transition-all duration-700 ease-out ${isInView ? 'animate-fade-in translate-y-0 opacity-100' : 'opacity-0 translate-y-8'}`} style={{
+    return <div ref={ref} className={`relative group cursor-pointer transition-all duration-700 ease-out ${cardOffset} ${tabletOffset} ${isInView ? 'animate-fade-in translate-y-0 opacity-100' : 'opacity-0 translate-y-8'}`} style={{
       animationDelay: isInView ? animationDelay : '0ms',
       transitionDelay: isInView ? animationDelay : '0ms'
     }} onClick={() => handleCaseClick(caseItem, index)}>
         <div className={`
-          relative ${cardHeight} rounded-[2rem] p-8 shadow-2xl transition-all duration-500 
-          hover:shadow-3xl hover:-translate-y-2 overflow-hidden border-2
-          ${caseItem.bgColor} ${textColor}
-          border-gray-200 shadow-gray-300/30
+          relative ${cardHeight} rounded-2xl p-8 shadow-[0_12px_32px_rgba(2,6,23,0.08)] transition-all duration-500 
+          hover:shadow-[0_16px_40px_rgba(2,6,23,0.12)] hover:-translate-y-1 overflow-hidden
+          bg-white/60 backdrop-blur-md border border-white/40
           transform-gpu will-change-transform
         `}>
           {/* Coming Soon Overlay */}
-          {!caseItem.available && <div className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[2rem] z-10">
-              <Badge variant="secondary" className="bg-white/90 text-gray-800 font-medium px-6 py-2 text-lg rounded-2xl">
+          {!caseItem.available && <div className="absolute inset-0 bg-white/40 backdrop-blur-sm flex items-center justify-end flex-col pb-8 opacity-100 transition-opacity duration-300 rounded-2xl z-10">
+              <Badge variant="secondary" className="bg-white/90 text-gray-800 font-semibold px-6 py-3 text-base rounded-full shadow-sm">
                 Coming Soon
               </Badge>
             </div>}
           
           {/* Card Content */}
           <div className="space-y-6 h-full flex flex-col">
-            <h3 className="text-3xl md:text-4xl font-bold leading-tight">
-              Restraining Order
+            <h3 className="text-3xl md:text-4xl font-bold leading-tight text-[#0F172A] tracking-tight">
+              {caseItem.title}
             </h3>
             
-            <p className="text-gray-600 text-lg md:text-xl leading-relaxed flex-grow">
-              Start your case with Jura's help.
+            <p className="text-[#475569] text-lg md:text-xl leading-relaxed flex-grow">
+              {caseItem.description}
             </p>
             
-            {caseItem.available && <Button variant="secondary" size="lg" className="self-start mt-auto text-lg px-8 py-3 bg-gray-900 hover:bg-gray-800 text-white rounded-2xl" onClick={e => {
-            e.stopPropagation();
-            navigate(START_ROUTE);
-          }}>
+            {caseItem.available && <Button 
+              variant="secondary" 
+              size="lg" 
+              className="self-start mt-auto text-base font-semibold px-8 py-3 bg-[#2563EB] hover:bg-[#1d4ed8] text-white rounded-full shadow-sm hover:shadow-md hover:ring-2 hover:ring-blue-200 active:translate-y-[1px] transition-all duration-200" 
+              onClick={e => {
+              e.stopPropagation();
+              navigate(START_ROUTE);
+            }}>
                 Start Case
               </Button>}
           </div>
         </div>
       </div>;
   };
-  return <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 relative">
+  return <div className="min-h-screen bg-white relative font-[Inter,ui-sans-serif,system-ui,-apple-system,'Segoe_UI',Roboto,'Helvetica_Neue',Arial,'Apple_Color_Emoji','Segoe_UI_Emoji']">
       <main className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 md:py-24">
         <header ref={headerRef} className={`text-center mb-16 transition-all duration-700 ${headerVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
+          <h1 className="text-5xl md:text-6xl font-bold text-[#0F172A] mb-6 tracking-tight">
             Select Your Case
           </h1>
-          <p className="text-foreground-soft text-xl md:text-2xl max-w-3xl mx-auto">
+          <p className="text-[#475569] text-xl md:text-2xl max-w-3xl mx-auto">
             Choose your legal case type and get personalized help with court documents and filing processes.
           </p>
         </header>
@@ -146,7 +152,7 @@ const CaseSelector: React.FC = () => {
           loop: true
         }} className="w-full">
             <CarouselContent className="-ml-6">
-              {cases.map((caseItem, index) => <CarouselItem key={caseItem.title} className="pl-6 md:basis-1/2 xl:basis-1/3">
+              {cases.map((caseItem, index) => <CarouselItem key={caseItem.title} className="pl-6 basis-full sm:basis-1/2 xl:basis-1/3">
                   <CaseCard caseItem={caseItem} index={index} />
                 </CarouselItem>)}
             </CarouselContent>
