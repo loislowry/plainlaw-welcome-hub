@@ -34,27 +34,27 @@ const CaseSelector: React.FC = () => {
     title: 'Restraining Order',
     description: 'Start your case with Jura\'s help.',
     available: true,
-    bgColor: 'bg-[#1c1e22]'
+    bgColor: 'bg-[#f5f5f5]'
   }, {
     title: 'Custody & Visitation',
     description: 'Coming soon',
     available: false,
-    bgColor: 'bg-white'
+    bgColor: 'bg-[#f2f2f1]'
   }, {
     title: 'Divorce & Family Law',
     description: 'Coming soon',
     available: false,
-    bgColor: 'bg-[#1c1e22]'
+    bgColor: 'bg-white'
   }, {
     title: 'Small Claims',
     description: 'Coming soon',
     available: false,
-    bgColor: 'bg-white'
+    bgColor: 'bg-[#f5f5f5]'
   }, {
     title: 'Evictions',
     description: 'Coming soon',
     available: false,
-    bgColor: 'bg-[#1c1e22]'
+    bgColor: 'bg-[#f2f2f1]'
   }];
 
   // Uneven card heights for natural look - made bigger
@@ -87,8 +87,7 @@ const CaseSelector: React.FC = () => {
       isInView
     } = useInView<HTMLDivElement>();
     const cardHeight = cardHeights[index % cardHeights.length];
-    const isWhiteBg = caseItem.bgColor.includes('white');
-    const textColor = isWhiteBg ? 'text-gray-900' : 'text-white';
+    const textColor = 'text-gray-900'; // All backgrounds are light now
 
     // iPhone-style staggered animation delay
     const animationDelay = `${index * 150}ms`;
@@ -97,15 +96,15 @@ const CaseSelector: React.FC = () => {
       transitionDelay: isInView ? animationDelay : '0ms'
     }} onClick={() => handleCaseClick(caseItem, index)}>
         <div className={`
-          relative ${cardHeight} rounded-3xl p-8 shadow-2xl transition-all duration-500 
+          relative ${cardHeight} rounded-[2rem] p-8 shadow-2xl transition-all duration-500 
           hover:shadow-3xl hover:-translate-y-2 overflow-hidden border-2
           ${caseItem.bgColor} ${textColor}
-          ${isWhiteBg ? 'border-gray-200 shadow-gray-300/30' : 'border-gray-700 shadow-black/40'}
+          border-gray-200 shadow-gray-300/30
           transform-gpu will-change-transform
         `}>
           {/* Coming Soon Overlay */}
-          {!caseItem.available && <div className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl z-10">
-              <Badge variant="secondary" className="bg-white/90 text-gray-800 font-medium px-6 py-2 text-lg">
+          {!caseItem.available && <div className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[2rem] z-10">
+              <Badge variant="secondary" className="bg-white/90 text-gray-800 font-medium px-6 py-2 text-lg rounded-2xl">
                 Coming Soon
               </Badge>
             </div>}
@@ -116,11 +115,11 @@ const CaseSelector: React.FC = () => {
               Restraining Order
             </h3>
             
-            <p className={`${isWhiteBg ? 'text-gray-600' : 'text-white/90'} text-lg md:text-xl leading-relaxed flex-grow`}>
+            <p className="text-gray-600 text-lg md:text-xl leading-relaxed flex-grow">
               Start your case with Jura's help.
             </p>
             
-            {caseItem.available && <Button variant="secondary" size="lg" className={`self-start mt-auto text-lg px-8 py-3 ${isWhiteBg ? 'bg-gray-900 hover:bg-gray-800 text-white' : 'bg-white/20 hover:bg-white/30 text-white border-white/30'}`} onClick={e => {
+            {caseItem.available && <Button variant="secondary" size="lg" className="self-start mt-auto text-lg px-8 py-3 bg-gray-900 hover:bg-gray-800 text-white rounded-2xl" onClick={e => {
             e.stopPropagation();
             navigate(START_ROUTE);
           }}>
@@ -154,8 +153,8 @@ const CaseSelector: React.FC = () => {
             
             {/* Navigation buttons positioned in upper right */}
             <div className="absolute -top-20 right-0 flex gap-3 z-20">
-              <CarouselPrevious className="relative top-0 left-0 translate-x-0 translate-y-0 bg-white/90 hover:bg-white border-2 border-gray-200 shadow-lg w-12 h-12" />
-              <CarouselNext className="relative top-0 right-0 translate-x-0 translate-y-0 bg-white/90 hover:bg-white border-2 border-gray-200 shadow-lg w-12 h-12" />
+              <CarouselPrevious className="relative top-0 left-0 translate-x-0 translate-y-0 bg-white/90 hover:bg-white border-2 border-gray-200 shadow-lg w-12 h-12 rounded-2xl" />
+              <CarouselNext className="relative top-0 right-0 translate-x-0 translate-y-0 bg-white/90 hover:bg-white border-2 border-gray-200 shadow-lg w-12 h-12 rounded-2xl" />
             </div>
           </Carousel>
         </section>
