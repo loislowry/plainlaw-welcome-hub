@@ -5,7 +5,6 @@ import { Badge } from '@/components/ui/badge';
 import { useToast } from '@/components/ui/use-toast';
 import { useNavigate } from 'react-router-dom';
 import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from '@/components/ui/carousel';
-
 const CaseSelector: React.FC = () => {
   useEffect(() => {
     document.title = 'Select Your Case | PlainLaw';
@@ -20,57 +19,52 @@ const CaseSelector: React.FC = () => {
       document.head.appendChild(m);
     }
   }, []);
-
-  const { toast } = useToast();
+  const {
+    toast
+  } = useToast();
   const navigate = useNavigate();
   const START_ROUTE = "/case/intro/dv";
-
   interface CaseType {
     title: string;
     description: string;
     available: boolean;
     bgColor: string;
   }
-
-  const cases: CaseType[] = [
-    {
-      title: 'Restraining Order',
-      description: 'Start your case with Jura\'s help.',
-      available: true,
-      bgColor: 'bg-[#1c1e22]'
-    },
-    {
-      title: 'Custody & Visitation', 
-      description: 'Coming soon',
-      available: false,
-      bgColor: 'bg-white'
-    },
-    {
-      title: 'Divorce & Family Law',
-      description: 'Coming soon', 
-      available: false,
-      bgColor: 'bg-[#1c1e22]'
-    },
-    {
-      title: 'Small Claims',
-      description: 'Coming soon',
-      available: false,
-      bgColor: 'bg-white'
-    },
-    {
-      title: 'Evictions',
-      description: 'Coming soon',
-      available: false,
-      bgColor: 'bg-[#1c1e22]'
-    }
-  ];
+  const cases: CaseType[] = [{
+    title: 'Restraining Order',
+    description: 'Start your case with Jura\'s help.',
+    available: true,
+    bgColor: 'bg-[#1c1e22]'
+  }, {
+    title: 'Custody & Visitation',
+    description: 'Coming soon',
+    available: false,
+    bgColor: 'bg-white'
+  }, {
+    title: 'Divorce & Family Law',
+    description: 'Coming soon',
+    available: false,
+    bgColor: 'bg-[#1c1e22]'
+  }, {
+    title: 'Small Claims',
+    description: 'Coming soon',
+    available: false,
+    bgColor: 'bg-white'
+  }, {
+    title: 'Evictions',
+    description: 'Coming soon',
+    available: false,
+    bgColor: 'bg-[#1c1e22]'
+  }];
 
   // Uneven card heights for natural look - made bigger
   const cardHeights = ['h-96', 'h-[26rem]', 'h-[22rem]', 'h-[28rem]', 'h-[24rem]'];
 
   // Scroll reveal: header + carousel
-  const { ref: headerRef, isInView: headerVisible } = useInView<HTMLElement>();
-
+  const {
+    ref: headerRef,
+    isInView: headerVisible
+  } = useInView<HTMLElement>();
   const handleCaseClick = (caseItem: CaseType, index: number) => {
     if (caseItem.available) {
       navigate(START_ROUTE);
@@ -81,28 +75,27 @@ const CaseSelector: React.FC = () => {
       });
     }
   };
-
-  const CaseCard: React.FC<{ caseItem: CaseType; index: number }> = ({ caseItem, index }) => {
-    const { ref, isInView } = useInView<HTMLDivElement>();
+  const CaseCard: React.FC<{
+    caseItem: CaseType;
+    index: number;
+  }> = ({
+    caseItem,
+    index
+  }) => {
+    const {
+      ref,
+      isInView
+    } = useInView<HTMLDivElement>();
     const cardHeight = cardHeights[index % cardHeights.length];
     const isWhiteBg = caseItem.bgColor.includes('white');
     const textColor = isWhiteBg ? 'text-gray-900' : 'text-white';
-    
+
     // iPhone-style staggered animation delay
     const animationDelay = `${index * 150}ms`;
-    
-    return (
-      <div 
-        ref={ref} 
-        className={`relative group cursor-pointer transition-all duration-700 ease-out ${
-          isInView ? 'animate-fade-in translate-y-0 opacity-100' : 'opacity-0 translate-y-8'
-        }`}
-        style={{ 
-          animationDelay: isInView ? animationDelay : '0ms',
-          transitionDelay: isInView ? animationDelay : '0ms'
-        }}
-        onClick={() => handleCaseClick(caseItem, index)}
-      >
+    return <div ref={ref} className={`relative group cursor-pointer transition-all duration-700 ease-out ${isInView ? 'animate-fade-in translate-y-0 opacity-100' : 'opacity-0 translate-y-8'}`} style={{
+      animationDelay: isInView ? animationDelay : '0ms',
+      transitionDelay: isInView ? animationDelay : '0ms'
+    }} onClick={() => handleCaseClick(caseItem, index)}>
         <div className={`
           relative ${cardHeight} rounded-3xl p-8 shadow-2xl transition-all duration-500 
           hover:shadow-3xl hover:-translate-y-2 overflow-hidden border-2
@@ -111,13 +104,11 @@ const CaseSelector: React.FC = () => {
           transform-gpu will-change-transform
         `}>
           {/* Coming Soon Overlay */}
-          {!caseItem.available && (
-            <div className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl z-10">
+          {!caseItem.available && <div className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl z-10">
               <Badge variant="secondary" className="bg-white/90 text-gray-800 font-medium px-6 py-2 text-lg">
                 Coming Soon
               </Badge>
-            </div>
-          )}
+            </div>}
           
           {/* Card Content */}
           <div className="space-y-6 h-full flex flex-col">
@@ -129,38 +120,19 @@ const CaseSelector: React.FC = () => {
               Start your case with Jura's help.
             </p>
             
-            {caseItem.available && (
-              <Button 
-                variant="secondary" 
-                size="lg" 
-                className={`self-start mt-auto text-lg px-8 py-3 ${
-                  isWhiteBg 
-                    ? 'bg-gray-900 hover:bg-gray-800 text-white' 
-                    : 'bg-white/20 hover:bg-white/30 text-white border-white/30'
-                }`}
-                onClick={(e) => {
-                  e.stopPropagation();
-                  navigate(START_ROUTE);
-                }}
-              >
+            {caseItem.available && <Button variant="secondary" size="lg" className={`self-start mt-auto text-lg px-8 py-3 ${isWhiteBg ? 'bg-gray-900 hover:bg-gray-800 text-white' : 'bg-white/20 hover:bg-white/30 text-white border-white/30'}`} onClick={e => {
+            e.stopPropagation();
+            navigate(START_ROUTE);
+          }}>
                 Start Case
-              </Button>
-            )}
+              </Button>}
           </div>
         </div>
-      </div>
-    );
+      </div>;
   };
-
-  return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 relative">
+  return <div className="min-h-screen bg-gradient-to-br from-gray-50 to-blue-50 relative">
       <main className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 md:py-24">
-        <header 
-          ref={headerRef} 
-          className={`text-center mb-16 transition-all duration-700 ${
-            headerVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'
-          }`}
-        >
+        <header ref={headerRef} className={`text-center mb-16 transition-all duration-700 ${headerVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h1 className="text-5xl md:text-6xl font-bold text-foreground mb-6">
             Select Your Case
           </h1>
@@ -170,19 +142,14 @@ const CaseSelector: React.FC = () => {
         </header>
 
         <section className="max-w-6xl mx-auto relative">
-          <Carousel 
-            opts={{
-              align: "start",
-              loop: true
-            }} 
-            className="w-full"
-          >
+          <Carousel opts={{
+          align: "start",
+          loop: true
+        }} className="w-full">
             <CarouselContent className="-ml-6">
-              {cases.map((caseItem, index) => (
-                <CarouselItem key={caseItem.title} className="pl-6 md:basis-1/2 xl:basis-1/3">
+              {cases.map((caseItem, index) => <CarouselItem key={caseItem.title} className="pl-6 md:basis-1/2 xl:basis-1/3">
                   <CaseCard caseItem={caseItem} index={index} />
-                </CarouselItem>
-              ))}
+                </CarouselItem>)}
             </CarouselContent>
             
             {/* Navigation buttons positioned in upper right */}
@@ -194,16 +161,9 @@ const CaseSelector: React.FC = () => {
         </section>
 
         <div className="mt-20 text-center">
-          <p className="text-foreground-soft text-lg">
-            More case types coming soon. Need help with something else?{' '}
-            <a href="#" className="text-primary hover:underline font-medium">
-              Contact us
-            </a>
-          </p>
+          
         </div>
       </main>
-    </div>
-  );
+    </div>;
 };
-
 export default CaseSelector;
