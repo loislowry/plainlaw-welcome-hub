@@ -12,6 +12,7 @@ import {
   CarouselPrevious,
 } from '@/components/ui/carousel';
 const CaseSelector: React.FC = () => {
+  // Force recompilation
   useEffect(() => {
     document.title = 'Select Your Case | PlainLaw';
     const meta = document.querySelector('meta[name="description"]');
