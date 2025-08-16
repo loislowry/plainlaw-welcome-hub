@@ -103,7 +103,7 @@ const CaseSelector: React.FC = () => {
           transform-gpu will-change-transform
         `}>
           {/* Coming Soon Overlay */}
-          {!caseItem.available && <div className="absolute inset-0 bg-black/60 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[2rem] z-10">
+          {!caseItem.available && <div className="absolute inset-0 bg-white/70 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-[2rem] z-10">
               <Badge variant="secondary" className="bg-white/90 text-gray-800 font-medium px-6 py-2 text-lg rounded-2xl">
                 Coming Soon
               </Badge>
