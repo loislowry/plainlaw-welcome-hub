@@ -119,10 +119,10 @@ const CaseSelector: React.FC = () => {
               Start your case with Jura's help.
             </p>
             
-            {caseItem.available && <Button variant="secondary" size="lg" className="self-start mt-auto text-lg px-8 py-3 bg-[#2563EB] hover:bg-[#1d4ed8] text-white rounded-2xl" onClick={e => {
+            {caseItem.available && <Button variant="secondary" size="lg" onClick={e => {
             e.stopPropagation();
             navigate(START_ROUTE);
-          }}>
+          }} className="self-start mt-auto text-lg px-8 py-3 text-white rounded-3xl bg-[#1c1e22]">
                 Start Case
               </Button>}
           </div>
@@ -153,8 +153,8 @@ const CaseSelector: React.FC = () => {
             
             {/* Navigation buttons positioned in upper right */}
             <div className="absolute -top-20 right-0 flex gap-3 z-20">
-              <CarouselPrevious className="relative top-0 left-0 translate-x-0 translate-y-0 bg-white/90 hover:bg-white border-2 border-gray-200 shadow-lg w-12 h-12 rounded-2xl" />
-              <CarouselNext className="relative top-0 right-0 translate-x-0 translate-y-0 bg-white/90 hover:bg-white border-2 border-gray-200 shadow-lg w-12 h-12 rounded-2xl" />
+              <CarouselPrevious className="relative top-0 left-0 translate-x-0 translate-y-0 bg-white/90 hover:bg-white border-2 border-gray-200 shadow-lg w-12 h-12 rounded-3xl" />
+              <CarouselNext className="relative top-0 right-0 translate-x-0 translate-y-0 bg-white/90 hover:bg-white border-2 border-gray-200 shadow-lg w-12 h-12 rounded-3xl" />
             </div>
           </Carousel>
         </section>
