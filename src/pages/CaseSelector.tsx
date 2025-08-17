@@ -111,7 +111,7 @@ const CaseSelector: React.FC = () => {
           
           {/* Card Content */}
           <div className="space-y-6 h-full flex flex-col">
-            <h3 className="text-3xl md:text-4xl font-bold leading-tight">
+            <h3 className="text-3xl md:text-4xl leading-tight font-semibold">
               Restraining Order
             </h3>
             
@@ -130,12 +130,12 @@ const CaseSelector: React.FC = () => {
       </div>;
   };
   return <div className="min-h-screen bg-white relative">
-      <main className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 md:py-24">
+      <main className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 md:py-[71px]">
         <header ref={headerRef} className={`text-center mb-16 transition-all duration-700 ${headerVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <h1 className="text-5xl md:text-6xl font-bold text-[#0F172A] mb-6">
+          <h1 className="text-5xl md:text-6xl text-[#0F172A] mb-6 font-semibold">
             Select Your Case
           </h1>
-          <p className="text-[#475569] text-xl md:text-2xl max-w-3xl mx-auto">
+          <p className="text-[#475569] text-xl max-w-3xl mx-auto md:text-2xl">
             Choose your legal case type and get personalized help with court documents and filing processes.
           </p>
         </header>
