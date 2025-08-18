@@ -63,8 +63,8 @@ const CaseSelector: React.FC = () => {
     bgColor: 'bg-[#F1F5F9]/60'
   }];
 
-  // Uneven card heights for natural look - compact
-  const cardHeights = ['h-80', 'h-[21rem]', 'h-[18rem]', 'h-[22rem]', 'h-[19rem]'];
+  // Uneven card heights for natural look - made bigger
+  const cardHeights = ['h-96', 'h-[26rem]', 'h-[22rem]', 'h-[28rem]', 'h-[24rem]'];
 
   // Scroll reveal: header + carousel
   const {
@@ -102,7 +102,7 @@ const CaseSelector: React.FC = () => {
       transitionDelay: isInView ? animationDelay : '0ms'
     }} onClick={() => handleCaseClick(caseItem, index)}>
         <div className={`
-          relative ${cardHeight} rounded-[2rem] shadow-[0_12px_32px_rgba(2,6,23,0.08)] transition-all duration-500 
+          relative ${cardHeight} rounded-[2rem] p-6 md:p-7 pb-6 shadow-[0_12px_32px_rgba(2,6,23,0.08)] transition-all duration-500 
           hover:shadow-3xl overflow-hidden border
           ${caseItem.bgColor} backdrop-blur-md ${textColor}
           border-white/40
@@ -116,8 +116,8 @@ const CaseSelector: React.FC = () => {
             </div>}
           
           {/* Card Content */}
-          <div className="flex flex-col h-full p-6 md:p-7">
-            <div className="flex-1 space-y-3 md:space-y-4">
+          <div className="flex flex-col h-full">
+            <div className="flex-1 space-y-2 md:space-y-3">
               <h3 className="text-3xl md:text-4xl leading-tight font-semibold">
                 {caseItem.title}
               </h3>
@@ -126,7 +126,7 @@ const CaseSelector: React.FC = () => {
                 {caseItem.description}
               </p>
               
-              <p className="text-sm text-slate-600 leading-6 mb-0">
+              <p className="text-[#475569] text-lg leading-relaxed md:text-base mb-0">
                 {caseItem.nextSteps}
               </p>
             </div>
@@ -135,7 +135,7 @@ const CaseSelector: React.FC = () => {
               <button onClick={e => {
               e.stopPropagation();
               navigate(START_ROUTE);
-            }} className="inline-flex items-center justify-center rounded-full px-5 h-11 text-white font-semibold leading-none transition focus:outline-none focus:ring-2 focus:ring-blue-200 ring-offset-0 bg-[#2563EB]">
+            }} className="inline-flex items-center justify-center rounded-full px-5 h-11 text-white font-semibold leading-none transition focus:outline-none focus:ring-2 focus:ring-blue-200 ring-offset-0 bg-[#1c1e22]">
                 Start Case
               </button>
             </div>}
@@ -146,10 +146,10 @@ const CaseSelector: React.FC = () => {
   return <div className="min-h-screen bg-white relative">
       <main className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 md:py-[71px]">
         <header ref={headerRef} className={`text-center mb-16 transition-all duration-700 ${headerVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <h1 className="text-5xl text-[#0F172A] mb-6 font-medium md:text-7xl">
+          <h1 className="text-5xl md:text-6xl text-[#0F172A] mb-6 font-semibold">
             Select Your Case
           </h1>
-          <p className="text-[#475569] text-xl max-w-3xl mx-auto md:text-xl">
+          <p className="text-[#475569] text-xl max-w-3xl mx-auto md:text-2xl">
             Choose your legal case type and get personalized help with court documents and filing processes.
           </p>
         </header>
