@@ -126,7 +126,7 @@ const CaseSelector: React.FC = () => {
                 {caseItem.description}
               </p>
               
-              <p className="text-[#475569] text-lg md:text-xl leading-relaxed truncate">
+              <p className="text-[#475569] text-lg leading-relaxed truncate md:text-base">
                 {caseItem.nextSteps}
               </p>
             </div>
