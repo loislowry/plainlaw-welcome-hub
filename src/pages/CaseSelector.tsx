@@ -102,7 +102,7 @@ const CaseSelector: React.FC = () => {
       transitionDelay: isInView ? animationDelay : '0ms'
     }} onClick={() => handleCaseClick(caseItem, index)}>
         <div className={`
-          relative ${cardHeight} rounded-[2rem] p-8 shadow-[0_12px_32px_rgba(2,6,23,0.08)] transition-all duration-500 
+          relative ${cardHeight} rounded-[2rem] p-6 md:p-7 shadow-[0_12px_32px_rgba(2,6,23,0.08)] transition-all duration-500 
           hover:shadow-3xl hover:-translate-y-2 overflow-hidden border
           ${caseItem.bgColor} backdrop-blur-md ${textColor}
           border-white/40
@@ -116,7 +116,7 @@ const CaseSelector: React.FC = () => {
             </div>}
           
           {/* Card Content */}
-          <div className="space-y-4 h-full flex flex-col">
+          <div className="space-y-3 md:space-y-4 h-full flex flex-col">
             <h3 className="text-3xl md:text-4xl leading-tight font-semibold">
               {caseItem.title}
             </h3>
@@ -131,12 +131,15 @@ const CaseSelector: React.FC = () => {
               </p>
             </div>
             
-            {caseItem.available && <Button variant="secondary" size="lg" onClick={e => {
-            e.stopPropagation();
-            navigate(START_ROUTE);
-          }} className="self-start mt-auto text-lg px-8 py-3 text-white rounded-3xl bg-[#1c1e22]">
-                Start Case
-              </Button>}
+            {caseItem.available && <button 
+              onClick={e => {
+                e.stopPropagation();
+                navigate(START_ROUTE);
+              }} 
+              className="bg-[#2563EB] text-white font-semibold rounded-full px-5 h-11 mt-auto self-start transition-all duration-200 hover:ring-2 hover:ring-blue-200 focus:ring-2 focus:ring-blue-200 focus:outline-none active:translate-y-px"
+            >
+              Start Case
+            </button>}
           </div>
         </div>
       </div>;
