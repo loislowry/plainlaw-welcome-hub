@@ -132,13 +132,10 @@ const CaseSelector: React.FC = () => {
             </div>
             
             {caseItem.available && <div className="mt-auto pt-3 shrink-0 self-start">
-              <button 
-                onClick={e => {
-                  e.stopPropagation();
-                  navigate(START_ROUTE);
-                }}
-                className="inline-flex items-center justify-center rounded-full px-5 h-11 bg-[#2563EB] text-white font-semibold leading-none transition focus:outline-none focus:ring-2 focus:ring-blue-200 ring-offset-0"
-              >
+              <button onClick={e => {
+              e.stopPropagation();
+              navigate(START_ROUTE);
+            }} className="inline-flex items-center justify-center rounded-full px-5 h-11 text-white font-semibold leading-none transition focus:outline-none focus:ring-2 focus:ring-blue-200 ring-offset-0 bg-[#1c1e22]">
                 Start Case
               </button>
             </div>}
