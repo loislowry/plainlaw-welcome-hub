@@ -102,8 +102,8 @@ const CaseSelector: React.FC = () => {
       transitionDelay: isInView ? animationDelay : '0ms'
     }} onClick={() => handleCaseClick(caseItem, index)}>
         <div className={`
-          relative ${cardHeight} rounded-[2rem] p-8 shadow-[0_12px_32px_rgba(2,6,23,0.08)] transition-all duration-500 
-          hover:shadow-3xl hover:-translate-y-2 overflow-hidden border
+          relative ${cardHeight} rounded-[2rem] p-6 md:p-7 pb-6 shadow-[0_12px_32px_rgba(2,6,23,0.08)] transition-all duration-500 
+          hover:shadow-3xl overflow-hidden border
           ${caseItem.bgColor} backdrop-blur-md ${textColor}
           border-white/40
           transform-gpu will-change-transform
@@ -116,27 +116,32 @@ const CaseSelector: React.FC = () => {
             </div>}
           
           {/* Card Content */}
-          <div className="space-y-4 h-full flex flex-col">
-            <h3 className="text-3xl md:text-4xl leading-tight font-semibold">
-              {caseItem.title}
-            </h3>
-            
-            <div className="flex-grow space-y-3">
-              <p className="text-[#475569] text-lg md:text-xl leading-relaxed">
+          <div className="flex flex-col h-full">
+            <div className="flex-1 space-y-3 md:space-y-4">
+              <h3 className="text-3xl md:text-4xl leading-tight font-semibold last:mb-0">
+                {caseItem.title}
+              </h3>
+              
+              <p className="text-[#475569] text-lg md:text-xl leading-relaxed last:mb-0">
                 {caseItem.description}
               </p>
               
-              <p className="text-[#475569] text-lg leading-relaxed md:text-base">
+              <p className="text-[#475569] text-lg leading-relaxed md:text-base last:mb-0">
                 {caseItem.nextSteps}
               </p>
             </div>
             
-            {caseItem.available && <Button variant="secondary" size="lg" onClick={e => {
-            e.stopPropagation();
-            navigate(START_ROUTE);
-          }} className="self-start mt-auto text-lg px-8 py-3 text-white rounded-3xl bg-[#1c1e22]">
+            {caseItem.available && <div className="mt-auto pt-3 shrink-0 self-start">
+              <button 
+                onClick={e => {
+                  e.stopPropagation();
+                  navigate(START_ROUTE);
+                }}
+                className="inline-flex items-center justify-center rounded-full px-5 h-11 bg-[#2563EB] text-white font-semibold leading-none transition focus:outline-none focus:ring-2 focus:ring-blue-200 ring-offset-0"
+              >
                 Start Case
-              </Button>}
+              </button>
+            </div>}
           </div>
         </div>
       </div>;
