@@ -244,6 +244,75 @@ const CaseSelector: React.FC = () => {
                   </svg>
                 </div>
               )}
+              
+              {/* SVG illustration for Eviction Defense card */}
+              {index === 4 && (
+                <div className="mt-4 flex justify-center">
+                  <svg width="315" height="108" viewBox="0 0 315 108" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" className="w-full max-w-[280px] h-auto opacity-80">
+                    <title id="title">Door Notice + Key</title>
+                    <desc id="desc">A wobbly door frame with a taped paper notice and a simple key outline beside it. Vibe: official notice + response.</desc>
+
+                    {/* soft blobs (no outlines) */}
+                    <path d="M20 26c22-16 76-18 116 2 40 20 9 52-34 60-42 8-94-6-92-28 1-12 5-22 10-34Z" fill="#F5E6DA"/>
+                    <path d="M210 36c16-10 48-8 60 6 12 14 4 30-12 38-16 8-42 6-52-6-10-12-10-26 4-38Z" fill="#EAE8F4"/>
+
+                    {/* wobbly door frame */}
+                    <path d="M42 18
+                           Q38 16 36 24
+                           L36 90
+                           Q37 95 42 92
+                           L176 92
+                           Q184 92 182 84
+                           L182 20
+                           Q182 16 174 18
+                           L42 18 Z"
+                          stroke="#111" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+
+                    {/* door inner hint line (subtle, optional) */}
+                    <path d="M60 20 L60 90" stroke="#111" strokeWidth="2.2" strokeLinecap="round" opacity="0.35"/>
+
+                    {/* paper notice (white block) */}
+                    <rect x="92" y="36" width="46" height="30" rx="2.5" fill="#FFFFFF" stroke="#111" strokeWidth="2.6"/>
+                    {/* uneven text lines on notice */}
+                    <path d="M98 44h30 M98 50h26 M98 56h22" stroke="#111" strokeWidth="2.0" strokeLinecap="round" opacity="0.9"/>
+
+                    {/* tape pieces (pastel, no outline) */}
+                    <path d="M90 34 l12 -6 4 7 -12 6 Z" fill="#F6DFAE"/>
+                    <path d="M140 34 l-12 -6 -4 7 12 6 Z" fill="#F6DFAE"/>
+
+                    {/* key outline (wobbly) */}
+                    {/* ring */}
+                    <path d="M236 56
+                           q-14 -1 -18 12
+                           q2 14 16 18
+                           q14 2 22 -10
+                           q4 -14 -8 -20
+                           q-6 -2 -12 0 Z"
+                          stroke="#111" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                    {/* ring hole */}
+                    <path d="M240 64
+                           q-6 -1 -8 6
+                           q1 7 8 8
+                           q7 0 10 -6
+                           q0 -8 -10 -8 Z"
+                          stroke="#111" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+
+                    {/* shaft + teeth */}
+                    <path d="M252 68
+                           q 8 2 22 1
+                           q 3 0 4 3
+                           l 0 4
+                           l 8 0
+                           l 0 6
+                           l -6 0
+                           l 0 6
+                           l -8 0
+                           l 0 4
+                           q -10 2 -18 0"
+                          stroke="#111" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                  </svg>
+                </div>
+              )}
             </div>
             
             {caseItem.available && <div className="mt-auto pt-3 shrink-0 self-start">
