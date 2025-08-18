@@ -158,7 +158,7 @@ const CaseSelector: React.FC = () => {
           loop: true
         }} className="w-full">
             <CarouselContent className="-ml-6">
-              {cases.map((caseItem, index) => <CarouselItem key={caseItem.title} className="pl-6 md:basis-1/2 xl:basis-1/3">
+              {cases.map((caseItem, index) => <CarouselItem key={caseItem.title} className="pl-6 md:basis-1/2 xl:basis-1/3 py-[13px]">
                   <CaseCard caseItem={caseItem} index={index} />
                 </CarouselItem>)}
             </CarouselContent>
