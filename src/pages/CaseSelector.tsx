@@ -129,6 +129,54 @@ const CaseSelector: React.FC = () => {
               <p className="text-[#475569] text-lg leading-relaxed md:text-base mb-0">
                 {caseItem.nextSteps}
               </p>
+              
+              {/* SVG illustration for Custody & Visitation card */}
+              {index === 1 && (
+                <div className="mt-4 flex justify-center">
+                  <svg width="312" height="92" viewBox="0 0 312 92" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" className="w-full max-w-[280px] h-auto opacity-80">
+                    <title id="title">Divorce & Family — Care and Coordination</title>
+                    <desc id="desc">Two simple adult figures with a child in the middle, a small heart above, connected by a dotted path. Hand-drawn, slightly wobbly strokes with soft color blobs.</desc>
+
+                    {/* soft blobs (no outlines) */}
+                    <path d="M40 28c20-16 54-10 62 7 8 16-9 30-29 34-20 4-40-2-45-14-4-10 1-19 12-27Z" fill="#F5E6DA"/>
+                    <path d="M210 28c20-16 54-10 62 7 8 16-9 30-29 34-20 4-40-2-45-14-4-10 1-19 12-27Z" fill="#EAE8F4"/>
+                    <path d="M135 10c16-6 44-2 48 10 3 10-7 18-17 21-13 3-28 3-38-3-9-5-10-18 7-28Z" fill="#F9D6C8"/>
+
+                    {/* left adult: head (slightly uneven circle) */}
+                    <path d="M70 14c7-2 16 2 18 9 2 7-3 14-10 16-8 2-15-3-17-10-2-6 1-12 9-15Z"
+                          stroke="#111" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                    {/* left shoulders/chest */}
+                    <path d="M50 58q20-10 40 0 3 2 6 6"
+                          stroke="#111" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+
+                    {/* right adult: head */}
+                    <path d="M242 14c7-2 16 2 18 9 2 7-3 14-10 16-8 2-15-3-17-10-2-6 1-12 9-15Z"
+                          stroke="#111" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                    {/* right shoulders/chest */}
+                    <path d="M222 58q20-10 40 0 3 2 6 6"
+                          stroke="#111" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+
+                    {/* dotted path connecting adults (slightly wavy) */}
+                    <path d="M100 46q28-8 56 0t56 0"
+                          stroke="#111" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none"
+                          strokeDasharray="0.01 8"/>
+
+                    {/* heart above center (small, hand-drawn) */}
+                    <path d="M151 22c-2-4-8-4-10 0-2 4 1 8 5 11l5 4 5-4c4-3 7-7 5-11-2-4-8-4-10 0Z"
+                          stroke="#111" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+
+                    {/* child (stick figure) */}
+                    {/* head */}
+                    <circle cx="156" cy="44" r="5.6" stroke="#111" strokeWidth="3" fill="none"/>
+                    {/* body */}
+                    <path d="M156 50v16" stroke="#111" strokeWidth="3.2" strokeLinecap="round"/>
+                    {/* arms */}
+                    <path d="M146 56q10-4 20 0" stroke="#111" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round"/>
+                    {/* legs */}
+                    <path d="M152 70q4 4 4 8 M160 70q-4 4-4 8" stroke="#111" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round"/>
+                  </svg>
+                </div>
+              )}
             </div>
             
             {caseItem.available && <div className="mt-auto pt-3 shrink-0 self-start">
