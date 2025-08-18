@@ -308,7 +308,7 @@ const CaseSelector: React.FC = () => {
       </div>;
   };
   return <div className="min-h-screen bg-white relative">
-      <main className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 md:py-[71px]">
+      <main className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 md:py-[63px]">
         <header ref={headerRef} className={`text-center mb-16 transition-all duration-700 ${headerVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h1 className="text-5xl md:text-6xl text-[#0F172A] mb-6 font-semibold">
             Select Your Case
