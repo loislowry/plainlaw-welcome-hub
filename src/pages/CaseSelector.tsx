@@ -27,32 +27,38 @@ const CaseSelector: React.FC = () => {
   interface CaseType {
     title: string;
     description: string;
+    nextSteps: string;
     available: boolean;
     bgColor: string;
   }
   const cases: CaseType[] = [{
     title: 'Restraining Order',
-    description: 'Start your case with Jura\'s help.',
+    description: 'Get protection fast. Jura collects your story, completes DV forms, and guides filing & service.',
+    nextSteps: 'Next: Quick Intake → Recommended Forms → Build Docs → File & Serve → Dashboard',
     available: true,
     bgColor: 'bg-[#F9FAFB]/60'
   }, {
     title: 'Custody & Visitation',
-    description: 'Coming soon',
+    description: 'Set or change a parenting schedule. Jura will draft your request and supporting forms.',
+    nextSteps: 'Next: Quick Intake → Recommended Forms → Build Docs → Court Prep → Dashboard',
     available: false,
     bgColor: 'bg-[#F1F5F9]/60'
   }, {
     title: 'Divorce & Family Law',
-    description: 'Coming soon',
+    description: 'Starting or responding to a divorce? Jura will organize info, disclosures, and required forms.',
+    nextSteps: 'Next: Quick Intake → Recommended Forms → Build Docs → File & Track → Dashboard',
     available: false,
     bgColor: 'bg-[#F8FAFC]/60'
   }, {
     title: 'Small Claims',
-    description: 'Coming soon',
+    description: 'Resolve money disputes under $10,000. Jura will guide filing and hearing preparation.',
+    nextSteps: 'Next: Quick Intake → Recommended Forms → Build Docs → Court Prep → Dashboard',
     available: false,
     bgColor: 'bg-[#F9FAFB]/60'
   }, {
-    title: 'Evictions',
-    description: 'Coming soon',
+    title: 'Eviction Defense',
+    description: 'Facing a notice or lawsuit? Jura will help prepare the right response and track deadlines.',
+    nextSteps: 'Next: Quick Intake → Recommended Forms → Build Docs → File & Track → Dashboard',
     available: false,
     bgColor: 'bg-[#F1F5F9]/60'
   }];
@@ -110,14 +116,20 @@ const CaseSelector: React.FC = () => {
             </div>}
           
           {/* Card Content */}
-          <div className="space-y-6 h-full flex flex-col">
+          <div className="space-y-4 h-full flex flex-col">
             <h3 className="text-3xl md:text-4xl leading-tight font-semibold">
-              Restraining Order
+              {caseItem.title}
             </h3>
             
-            <p className="text-[#475569] text-lg md:text-xl leading-relaxed flex-grow">
-              Start your case with Jura's help.
-            </p>
+            <div className="flex-grow space-y-3">
+              <p className="text-[#475569] text-lg md:text-xl leading-relaxed">
+                {caseItem.description}
+              </p>
+              
+              <p className="text-[#475569] text-lg md:text-xl leading-relaxed truncate">
+                {caseItem.nextSteps}
+              </p>
+            </div>
             
             {caseItem.available && <Button variant="secondary" size="lg" onClick={e => {
             e.stopPropagation();
