@@ -36,31 +36,31 @@ const CaseSelector: React.FC = () => {
     description: 'Get protection fast. Jura collects your story, completes DV forms, and guides filing & service.',
     nextSteps: 'Next: Quick Intake → Recommended Forms → Build Docs → File & Serve → Dashboard',
     available: true,
-    bgColor: 'bg-[#E5EEFF]/95'
+    bgColor: 'bg-[#F3F7FF]/92'
   }, {
     title: 'Custody & Visitation',
     description: 'Set or change a parenting schedule. Jura will draft your request and supporting forms.',
     nextSteps: 'Next: Quick Intake → Recommended Forms → Build Docs → Court Prep → Dashboard',
     available: false,
-    bgColor: 'bg-[#E5EEFF]/95'
+    bgColor: 'bg-[#F3F7FF]/92'
   }, {
     title: 'Divorce & Family Law',
     description: 'Starting or responding to a divorce? Jura will organize info, disclosures, and required forms.',
     nextSteps: 'Next: Quick Intake → Recommended Forms → Build Docs → File & Track → Dashboard',
     available: false,
-    bgColor: 'bg-[#E5EEFF]/95'
+    bgColor: 'bg-[#F3F7FF]/92'
   }, {
     title: 'Small Claims',
     description: 'Resolve money disputes under $10,000. Jura will guide filing and hearing preparation.',
     nextSteps: 'Next: Quick Intake → Recommended Forms → Build Docs → Court Prep → Dashboard',
     available: false,
-    bgColor: 'bg-[#E5EEFF]/95'
+    bgColor: 'bg-[#F3F7FF]/92'
   }, {
     title: 'Eviction Defense',
     description: 'Facing a notice or lawsuit? Jura will help prepare the right response and track deadlines.',
     nextSteps: 'Next: Quick Intake → Recommended Forms → Build Docs → File & Track → Dashboard',
     available: false,
-    bgColor: 'bg-[#E5EEFF]/95'
+    bgColor: 'bg-[#F3F7FF]/92'
   }];
 
   // Uneven card heights for natural look - made bigger
@@ -134,7 +134,7 @@ const CaseSelector: React.FC = () => {
             {caseItem.available && <button onClick={e => {
             e.stopPropagation();
             navigate(START_ROUTE);
-          }} className="text-white font-semibold rounded-full px-5 h-11 mt-auto self-start transition-all duration-200 hover:ring-2 hover:ring-blue-200 focus:ring-2 focus:ring-blue-200 focus:outline-none active:translate-y-px bg-[#1c1e22]">
+          }} className="bg-[#2563EB] text-white font-semibold rounded-full px-5 h-11 mt-auto self-start transition-all duration-200 hover:ring-2 hover:ring-blue-200 focus:ring-2 focus:ring-blue-200 focus:outline-none active:translate-y-px">
               Start Case
             </button>}
           </div>
