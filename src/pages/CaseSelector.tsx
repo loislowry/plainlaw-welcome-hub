@@ -36,31 +36,31 @@ const CaseSelector: React.FC = () => {
     description: 'Get protection fast. Jura collects your story, completes DV forms, and guides filing & service.',
     nextSteps: 'Next: Quick Intake → Recommended Forms → Build Docs → File & Serve → Dashboard',
     available: true,
-    bgColor: 'bg-white/90'
+    bgColor: 'bg-[#E5EEFF]/95'
   }, {
     title: 'Custody & Visitation',
     description: 'Set or change a parenting schedule. Jura will draft your request and supporting forms.',
     nextSteps: 'Next: Quick Intake → Recommended Forms → Build Docs → Court Prep → Dashboard',
     available: false,
-    bgColor: 'bg-white/90'
+    bgColor: 'bg-[#E5EEFF]/95'
   }, {
     title: 'Divorce & Family Law',
     description: 'Starting or responding to a divorce? Jura will organize info, disclosures, and required forms.',
     nextSteps: 'Next: Quick Intake → Recommended Forms → Build Docs → File & Track → Dashboard',
     available: false,
-    bgColor: 'bg-white/92'
+    bgColor: 'bg-[#E5EEFF]/95'
   }, {
     title: 'Small Claims',
     description: 'Resolve money disputes under $10,000. Jura will guide filing and hearing preparation.',
     nextSteps: 'Next: Quick Intake → Recommended Forms → Build Docs → Court Prep → Dashboard',
     available: false,
-    bgColor: 'bg-white/90'
+    bgColor: 'bg-[#E5EEFF]/95'
   }, {
     title: 'Eviction Defense',
     description: 'Facing a notice or lawsuit? Jura will help prepare the right response and track deadlines.',
     nextSteps: 'Next: Quick Intake → Recommended Forms → Build Docs → File & Track → Dashboard',
     available: false,
-    bgColor: 'bg-white/92'
+    bgColor: 'bg-[#E5EEFF]/95'
   }];
 
   // Uneven card heights for natural look - made bigger
