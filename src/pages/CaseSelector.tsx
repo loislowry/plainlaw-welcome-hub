@@ -63,8 +63,8 @@ const CaseSelector: React.FC = () => {
     bgColor: 'bg-[#F1F5F9]/60'
   }];
 
-  // Uneven card heights for natural look - made bigger
-  const cardHeights = ['h-96', 'h-[26rem]', 'h-[22rem]', 'h-[28rem]', 'h-[24rem]'];
+  // Uneven card heights for natural look - compact
+  const cardHeights = ['h-80', 'h-[21rem]', 'h-[18rem]', 'h-[22rem]', 'h-[19rem]'];
 
   // Scroll reveal: header + carousel
   const {
