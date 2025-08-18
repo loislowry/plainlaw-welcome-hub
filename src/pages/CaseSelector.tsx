@@ -131,63 +131,53 @@ const CaseSelector: React.FC = () => {
               </p>
               
               {/* SVG illustration for Custody & Visitation card */}
-              {index === 1 && (
-                <div className="mt-4 flex justify-center">
+              {index === 1 && <div className="mt-4 flex justify-center">
                   <svg width="312" height="92" viewBox="0 0 312 92" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" className="w-full max-w-[280px] h-auto opacity-80">
                     <title id="title">Divorce & Family — Care and Coordination</title>
                     <desc id="desc">Two simple adult figures with a child in the middle, a small heart above, connected by a dotted path. Hand-drawn, slightly wobbly strokes with soft color blobs.</desc>
 
                     {/* soft blobs (no outlines) */}
-                    <path d="M40 28c20-16 54-10 62 7 8 16-9 30-29 34-20 4-40-2-45-14-4-10 1-19 12-27Z" fill="#F5E6DA"/>
-                    <path d="M210 28c20-16 54-10 62 7 8 16-9 30-29 34-20 4-40-2-45-14-4-10 1-19 12-27Z" fill="#EAE8F4"/>
-                    <path d="M135 10c16-6 44-2 48 10 3 10-7 18-17 21-13 3-28 3-38-3-9-5-10-18 7-28Z" fill="#F9D6C8"/>
+                    <path d="M40 28c20-16 54-10 62 7 8 16-9 30-29 34-20 4-40-2-45-14-4-10 1-19 12-27Z" fill="#F5E6DA" />
+                    <path d="M210 28c20-16 54-10 62 7 8 16-9 30-29 34-20 4-40-2-45-14-4-10 1-19 12-27Z" fill="#EAE8F4" />
+                    <path d="M135 10c16-6 44-2 48 10 3 10-7 18-17 21-13 3-28 3-38-3-9-5-10-18 7-28Z" fill="#F9D6C8" />
 
                     {/* left adult: head (slightly uneven circle) */}
-                    <path d="M70 14c7-2 16 2 18 9 2 7-3 14-10 16-8 2-15-3-17-10-2-6 1-12 9-15Z"
-                          stroke="#111" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                    <path d="M70 14c7-2 16 2 18 9 2 7-3 14-10 16-8 2-15-3-17-10-2-6 1-12 9-15Z" stroke="#111" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                     {/* left shoulders/chest */}
-                    <path d="M50 58q20-10 40 0 3 2 6 6"
-                          stroke="#111" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                    <path d="M50 58q20-10 40 0 3 2 6 6" stroke="#111" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
 
                     {/* right adult: head */}
-                    <path d="M242 14c7-2 16 2 18 9 2 7-3 14-10 16-8 2-15-3-17-10-2-6 1-12 9-15Z"
-                          stroke="#111" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                    <path d="M242 14c7-2 16 2 18 9 2 7-3 14-10 16-8 2-15-3-17-10-2-6 1-12 9-15Z" stroke="#111" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                     {/* right shoulders/chest */}
-                    <path d="M222 58q20-10 40 0 3 2 6 6"
-                          stroke="#111" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                    <path d="M222 58q20-10 40 0 3 2 6 6" stroke="#111" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
 
                     {/* dotted path connecting adults (slightly wavy) */}
-                    <path d="M100 46q28-8 56 0t56 0"
-                          stroke="#111" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none"
-                          strokeDasharray="0.01 8"/>
+                    <path d="M100 46q28-8 56 0t56 0" stroke="#111" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" fill="none" strokeDasharray="0.01 8" />
 
                     {/* heart above center (small, hand-drawn) */}
-                    <path d="M151 22c-2-4-8-4-10 0-2 4 1 8 5 11l5 4 5-4c4-3 7-7 5-11-2-4-8-4-10 0Z"
-                          stroke="#111" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M151 22c-2-4-8-4-10 0-2 4 1 8 5 11l5 4 5-4c4-3 7-7 5-11-2-4-8-4-10 0Z" stroke="#111" strokeWidth="3" fill="none" strokeLinecap="round" strokeLinejoin="round" />
 
                     {/* child (stick figure) */}
                     {/* head */}
-                    <circle cx="156" cy="44" r="5.6" stroke="#111" strokeWidth="3" fill="none"/>
+                    <circle cx="156" cy="44" r="5.6" stroke="#111" strokeWidth="3" fill="none" />
                     {/* body */}
-                    <path d="M156 50v16" stroke="#111" strokeWidth="3.2" strokeLinecap="round"/>
+                    <path d="M156 50v16" stroke="#111" strokeWidth="3.2" strokeLinecap="round" />
                     {/* arms */}
-                    <path d="M146 56q10-4 20 0" stroke="#111" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M146 56q10-4 20 0" stroke="#111" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
                     {/* legs */}
-                    <path d="M152 70q4 4 4 8 M160 70q-4 4-4 8" stroke="#111" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M152 70q4 4 4 8 M160 70q-4 4-4 8" stroke="#111" strokeWidth="3.2" strokeLinecap="round" strokeLinejoin="round" />
                   </svg>
-                </div>
-              )}
+                </div>}
               
               {/* SVG illustration for Small Claims card */}
-              {index === 3 && (
-                <div className="mt-4 flex justify-center">
+              {index === 3 && <div className="mt-4 flex justify-center">
                   <svg width="312" height="162" viewBox="0 0 312 162" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" className="w-full max-w-[280px] h-auto opacity-80">
                     <title id="title">Receipt and Coin — Claim for Money Owed</title>
                     <desc id="desc">A rough receipt with a zig-zag bottom and a wobbly coin with a small dollar squiggle, drawn with imperfect lines and soft color blobs.</desc>
 
                     {/* Soft color blobs (no outlines) */}
-                    <path d="M26 36c22-18 72-18 96 2 24 20 5 48-28 57-33 9-72 2-84-18-9-15-3-29 16-41Z" fill="#F5E6DA"/>
-                    <path d="M230 54c16-10 44-8 56 6 12 14 2 30-14 36-16 6-38 4-48-6-10-10-10-24 6-36Z" fill="#F9DCC4"/>
+                    <path d="M26 36c22-18 72-18 96 2 24 20 5 48-28 57-33 9-72 2-84-18-9-15-3-29 16-41Z" fill="#F5E6DA" />
+                    <path d="M230 54c16-10 44-8 56 6 12 14 2 30-14 36-16 6-38 4-48-6-10-10-10-24 6-36Z" fill="#F9DCC4" />
 
                     {/* Receipt outline with zig-zag bottom (wobbly) */}
                     <path d="M60 30
@@ -218,43 +208,38 @@ const CaseSelector: React.FC = () => {
                            L226 36
                            Q224 30 218 32
                            L62 32
-                           Q61 31 60 30 Z"
-                          stroke="#111" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                           Q61 31 60 30 Z" stroke="#111" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
 
                     {/* "Text" lines on the receipt (uneven) */}
-                    <path d="M72 46h118" stroke="#111" strokeWidth="2.6" strokeLinecap="round" opacity="0.9"/>
-                    <path d="M72 58h104" stroke="#111" strokeWidth="2.6" strokeLinecap="round" opacity="0.9"/>
-                    <path d="M72 70h112" stroke="#111" strokeWidth="2.6" strokeLinecap="round" opacity="0.9"/>
-                    <path d="M72 82h90"  stroke="#111" strokeWidth="2.6" strokeLinecap="round" opacity="0.9"/>
+                    <path d="M72 46h118" stroke="#111" strokeWidth="2.6" strokeLinecap="round" opacity="0.9" />
+                    <path d="M72 58h104" stroke="#111" strokeWidth="2.6" strokeLinecap="round" opacity="0.9" />
+                    <path d="M72 70h112" stroke="#111" strokeWidth="2.6" strokeLinecap="round" opacity="0.9" />
+                    <path d="M72 82h90" stroke="#111" strokeWidth="2.6" strokeLinecap="round" opacity="0.9" />
 
                     {/* Wobbly coin shape */}
                     <path d="M262 86
                            q 6 -22 26 -20
                            q 24 4 22 26
                            q -4 24 -26 22
-                           q -24 -4 -22 -28 Z"
-                          stroke="#111" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                           q -24 -4 -22 -28 Z" stroke="#111" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
 
                     {/* Tiny '$' squiggle inside coin */}
                     <path d="M284 76
                            q -5 4 5 9
-                           q -7 4 -5 9"
-                          stroke="#111" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-                    <path d="M284 72v28" stroke="#111" strokeWidth="2.2" strokeLinecap="round"/>
+                           q -7 4 -5 9" stroke="#111" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+                    <path d="M284 72v28" stroke="#111" strokeWidth="2.2" strokeLinecap="round" />
                   </svg>
-                </div>
-              )}
+                </div>}
               
               {/* SVG illustration for Eviction Defense card */}
-              {index === 4 && (
-                <div className="mt-4 flex justify-center">
+              {index === 4 && <div className="mt-4 flex justify-center">
                   <svg width="315" height="108" viewBox="0 0 315 108" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" className="w-full max-w-[280px] h-auto opacity-80">
                     <title id="title">Door Notice + Key</title>
                     <desc id="desc">A wobbly door frame with a taped paper notice and a simple key outline beside it. Vibe: official notice + response.</desc>
 
                     {/* soft blobs (no outlines) */}
-                    <path d="M20 26c22-16 76-18 116 2 40 20 9 52-34 60-42 8-94-6-92-28 1-12 5-22 10-34Z" fill="#F5E6DA"/>
-                    <path d="M210 36c16-10 48-8 60 6 12 14 4 30-12 38-16 8-42 6-52-6-10-12-10-26 4-38Z" fill="#EAE8F4"/>
+                    <path d="M20 26c22-16 76-18 116 2 40 20 9 52-34 60-42 8-94-6-92-28 1-12 5-22 10-34Z" fill="#F5E6DA" />
+                    <path d="M210 36c16-10 48-8 60 6 12 14 4 30-12 38-16 8-42 6-52-6-10-12-10-26 4-38Z" fill="#EAE8F4" />
 
                     {/* wobbly door frame */}
                     <path d="M42 18
@@ -265,20 +250,19 @@ const CaseSelector: React.FC = () => {
                            Q184 92 182 84
                            L182 20
                            Q182 16 174 18
-                           L42 18 Z"
-                          stroke="#111" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                           L42 18 Z" stroke="#111" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
 
                     {/* door inner hint line (subtle, optional) */}
-                    <path d="M60 20 L60 90" stroke="#111" strokeWidth="2.2" strokeLinecap="round" opacity="0.35"/>
+                    <path d="M60 20 L60 90" stroke="#111" strokeWidth="2.2" strokeLinecap="round" opacity="0.35" />
 
                     {/* paper notice (white block) */}
-                    <rect x="92" y="36" width="46" height="30" rx="2.5" fill="#FFFFFF" stroke="#111" strokeWidth="2.6"/>
+                    <rect x="92" y="36" width="46" height="30" rx="2.5" fill="#FFFFFF" stroke="#111" strokeWidth="2.6" />
                     {/* uneven text lines on notice */}
-                    <path d="M98 44h30 M98 50h26 M98 56h22" stroke="#111" strokeWidth="2.0" strokeLinecap="round" opacity="0.9"/>
+                    <path d="M98 44h30 M98 50h26 M98 56h22" stroke="#111" strokeWidth="2.0" strokeLinecap="round" opacity="0.9" />
 
                     {/* tape pieces (pastel, no outline) */}
-                    <path d="M90 34 l12 -6 4 7 -12 6 Z" fill="#F6DFAE"/>
-                    <path d="M140 34 l-12 -6 -4 7 12 6 Z" fill="#F6DFAE"/>
+                    <path d="M90 34 l12 -6 4 7 -12 6 Z" fill="#F6DFAE" />
+                    <path d="M140 34 l-12 -6 -4 7 12 6 Z" fill="#F6DFAE" />
 
                     {/* key outline (wobbly) */}
                     {/* ring */}
@@ -287,15 +271,13 @@ const CaseSelector: React.FC = () => {
                            q2 14 16 18
                            q14 2 22 -10
                            q4 -14 -8 -20
-                           q-6 -2 -12 0 Z"
-                          stroke="#111" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                           q-6 -2 -12 0 Z" stroke="#111" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                     {/* ring hole */}
                     <path d="M240 64
                            q-6 -1 -8 6
                            q1 7 8 8
                            q7 0 10 -6
-                           q0 -8 -10 -8 Z"
-                          stroke="#111" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                           q0 -8 -10 -8 Z" stroke="#111" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none" />
 
                     {/* shaft + teeth */}
                     <path d="M252 68
@@ -308,18 +290,16 @@ const CaseSelector: React.FC = () => {
                            l 0 6
                            l -8 0
                            l 0 4
-                           q -10 2 -18 0"
-                          stroke="#111" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                           q -10 2 -18 0" stroke="#111" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" fill="none" />
                   </svg>
-                </div>
-              )}
+                </div>}
             </div>
             
             {caseItem.available && <div className="mt-auto pt-3 shrink-0 self-start">
               <button onClick={e => {
               e.stopPropagation();
               navigate(START_ROUTE);
-            }} className="inline-flex items-center justify-center rounded-full px-5 h-11 text-white font-semibold leading-none transition focus:outline-none focus:ring-2 focus:ring-blue-200 ring-offset-0 bg-[#1c1e22]">
+            }} className="inline-flex items-center justify-center rounded-full h-11 text-white font-semibold leading-none transition focus:outline-none focus:ring-2 focus:ring-blue-200 ring-offset-0 bg-[#1c1e22] mx-[15px] my-[27px] py-[25px] px-[35px]">
                 Start Case
               </button>
             </div>}
