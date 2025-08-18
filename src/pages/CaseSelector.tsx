@@ -102,7 +102,7 @@ const CaseSelector: React.FC = () => {
       transitionDelay: isInView ? animationDelay : '0ms'
     }} onClick={() => handleCaseClick(caseItem, index)}>
         <div className={`
-          relative ${cardHeight} rounded-[2rem] p-6 md:p-7 pb-6 shadow-[0_12px_32px_rgba(2,6,23,0.08)] transition-all duration-500 
+          relative ${cardHeight} rounded-[2rem] shadow-[0_12px_32px_rgba(2,6,23,0.08)] transition-all duration-500 
           hover:shadow-3xl overflow-hidden border
           ${caseItem.bgColor} backdrop-blur-md ${textColor}
           border-white/40
@@ -116,8 +116,8 @@ const CaseSelector: React.FC = () => {
             </div>}
           
           {/* Card Content */}
-          <div className="flex flex-col h-full">
-            <div className="flex-1 space-y-2 md:space-y-3">
+          <div className="flex flex-col h-full p-6 md:p-7">
+            <div className="flex-1 space-y-3 md:space-y-4">
               <h3 className="text-3xl md:text-4xl leading-tight font-semibold">
                 {caseItem.title}
               </h3>
@@ -126,7 +126,7 @@ const CaseSelector: React.FC = () => {
                 {caseItem.description}
               </p>
               
-              <p className="text-[#475569] text-lg leading-relaxed mb-0 md:text-base font-thin">
+              <p className="text-sm text-slate-600 leading-6 mb-0">
                 {caseItem.nextSteps}
               </p>
             </div>
@@ -135,7 +135,7 @@ const CaseSelector: React.FC = () => {
               <button onClick={e => {
               e.stopPropagation();
               navigate(START_ROUTE);
-            }} className="inline-flex items-center justify-center rounded-full px-5 h-11 text-white font-semibold leading-none transition focus:outline-none focus:ring-2 focus:ring-blue-200 ring-offset-0 bg-[#1c1e22]">
+            }} className="inline-flex items-center justify-center rounded-full px-5 h-11 text-white font-semibold leading-none transition focus:outline-none focus:ring-2 focus:ring-blue-200 ring-offset-0 bg-[#2563EB]">
                 Start Case
               </button>
             </div>}
