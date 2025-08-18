@@ -177,6 +177,73 @@ const CaseSelector: React.FC = () => {
                   </svg>
                 </div>
               )}
+              
+              {/* SVG illustration for Small Claims card */}
+              {index === 3 && (
+                <div className="mt-4 flex justify-center">
+                  <svg width="312" height="162" viewBox="0 0 312 162" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc" className="w-full max-w-[280px] h-auto opacity-80">
+                    <title id="title">Receipt and Coin — Claim for Money Owed</title>
+                    <desc id="desc">A rough receipt with a zig-zag bottom and a wobbly coin with a small dollar squiggle, drawn with imperfect lines and soft color blobs.</desc>
+
+                    {/* Soft color blobs (no outlines) */}
+                    <path d="M26 36c22-18 72-18 96 2 24 20 5 48-28 57-33 9-72 2-84-18-9-15-3-29 16-41Z" fill="#F5E6DA"/>
+                    <path d="M230 54c16-10 44-8 56 6 12 14 2 30-14 36-16 6-38 4-48-6-10-10-10-24 6-36Z" fill="#F9DCC4"/>
+
+                    {/* Receipt outline with zig-zag bottom (wobbly) */}
+                    <path d="M60 30
+                           Q56 28 54 34
+                           L54 112
+                           L60 104
+                           L68 118
+                           L76 104
+                           L84 118
+                           L92 104
+                           L100 118
+                           L108 104
+                           L116 118
+                           L124 104
+                           L132 118
+                           L140 104
+                           L148 118
+                           L156 104
+                           L164 118
+                           L172 104
+                           L180 118
+                           L188 104
+                           L196 118
+                           L204 104
+                           L212 118
+                           L220 104
+                           L226 112
+                           L226 36
+                           Q224 30 218 32
+                           L62 32
+                           Q61 31 60 30 Z"
+                          stroke="#111" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+
+                    {/* "Text" lines on the receipt (uneven) */}
+                    <path d="M72 46h118" stroke="#111" strokeWidth="2.6" strokeLinecap="round" opacity="0.9"/>
+                    <path d="M72 58h104" stroke="#111" strokeWidth="2.6" strokeLinecap="round" opacity="0.9"/>
+                    <path d="M72 70h112" stroke="#111" strokeWidth="2.6" strokeLinecap="round" opacity="0.9"/>
+                    <path d="M72 82h90"  stroke="#111" strokeWidth="2.6" strokeLinecap="round" opacity="0.9"/>
+
+                    {/* Wobbly coin shape */}
+                    <path d="M262 86
+                           q 6 -22 26 -20
+                           q 24 4 22 26
+                           q -4 24 -26 22
+                           q -24 -4 -22 -28 Z"
+                          stroke="#111" strokeWidth="3.4" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+
+                    {/* Tiny '$' squiggle inside coin */}
+                    <path d="M284 76
+                           q -5 4 5 9
+                           q -7 4 -5 9"
+                          stroke="#111" strokeWidth="2.6" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
+                    <path d="M284 72v28" stroke="#111" strokeWidth="2.2" strokeLinecap="round"/>
+                  </svg>
+                </div>
+              )}
             </div>
             
             {caseItem.available && <div className="mt-auto pt-3 shrink-0 self-start">
