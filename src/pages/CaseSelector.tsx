@@ -118,7 +118,7 @@ const CaseSelector: React.FC = () => {
           {/* Card Content */}
           <div className="flex flex-col h-full">
             <div className="flex-1 space-y-2 md:space-y-3">
-              <h3 className="text-3xl md:text-4xl leading-tight font-semibold">
+              <h3 className="text-3xl md:text-4xl leading-tight font-semibold uppercase">
                 {caseItem.title}
               </h3>
               
