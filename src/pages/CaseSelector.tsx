@@ -313,9 +313,7 @@ const CaseSelector: React.FC = () => {
           <h1 className="text-5xl md:text-6xl text-[#0F172A] mb-6 font-semibold">
             Select Your Case
           </h1>
-          <p className="text-[#475569] text-xl max-w-3xl font-normal md:text-xl">
-            Choose your legal case type and get personalized help with court documents and filing processes.
-          </p>
+          <p className="text-[#475569] text-xl max-w-3xl font-normal md:text-xl">Pick your case. Let Jura handle the paperwork.</p>
         </header>
 
         <section className="max-w-6xl mx-auto relative">
