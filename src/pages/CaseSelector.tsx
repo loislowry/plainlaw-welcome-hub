@@ -295,7 +295,7 @@ const CaseSelector: React.FC = () => {
                 </div>}
             </div>
             
-            {caseItem.available && <div className="mt-auto pt-3 shrink-0 self-start">
+            {caseItem.available && <div className="mt-auto pt-3 shrink-0 self-start my-0 py-[7px]">
               <button onClick={e => {
               e.stopPropagation();
               navigate(START_ROUTE);
