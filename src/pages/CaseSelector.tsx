@@ -116,7 +116,7 @@ const CaseSelector: React.FC = () => {
             </div>}
           
           {/* Card Content */}
-          <div className="flex flex-col h-full">
+          <div className="flex flex-col h-full py-0 my-0">
             <div className="flex-1 space-y-2 md:space-y-3">
               <h3 className="text-3xl md:text-4xl leading-tight font-semibold uppercase">
                 {caseItem.title}
@@ -299,7 +299,7 @@ const CaseSelector: React.FC = () => {
               <button onClick={e => {
               e.stopPropagation();
               navigate(START_ROUTE);
-            }} className="inline-flex items-center justify-center rounded-full h-11 text-white font-semibold leading-none transition focus:outline-none focus:ring-2 focus:ring-blue-200 ring-offset-0 bg-[#1c1e22] mx-[15px] my-[27px] py-[25px] px-[35px]">
+            }} className="inline-flex items-center justify-center rounded-full h-11 text-white font-semibold leading-none transition focus:outline-none focus:ring-2 focus:ring-blue-200 ring-offset-0 bg-[#1c1e22] mx-[15px] py-[25px] px-[35px] my-[34px]">
                 Start Case
               </button>
             </div>}
