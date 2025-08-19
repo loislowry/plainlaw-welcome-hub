@@ -316,7 +316,7 @@ const CaseSelector: React.FC = () => {
             </h1>
             <p className="text-[#475569] sm:text-xl max-w-3xl font-normal text-lg">Pick your case. Let Jura handle the paperwork.</p>
           </div>
-          <div className="w-[108px] h-12 flex-shrink-0 my-0"></div>
+          
         </header>
 
         <section className="max-w-6xl mx-auto relative">
