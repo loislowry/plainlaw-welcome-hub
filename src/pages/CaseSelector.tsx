@@ -118,7 +118,7 @@ const CaseSelector: React.FC = () => {
           {/* Card Content */}
           <div className="flex flex-col h-full">
             <div className="flex-1 space-y-2 md:space-y-3">
-              <h3 className="text-3xl md:text-4xl leading-tight font-semibold">
+              <h3 className="text-3xl md:text-4xl leading-tight font-semibold uppercase">
                 {caseItem.title}
               </h3>
               
@@ -299,7 +299,7 @@ const CaseSelector: React.FC = () => {
               <button onClick={e => {
               e.stopPropagation();
               navigate(START_ROUTE);
-            }} className="inline-flex items-center justify-center rounded-full h-11 text-white font-semibold leading-none transition focus:outline-none focus:ring-2 focus:ring-blue-200 ring-offset-0 bg-[#1c1e22] mx-[15px] px-[35px] py-[26px] my-[30px]">
+            }} className="inline-flex items-center justify-center rounded-full h-11 text-white font-semibold leading-none transition focus:outline-none focus:ring-2 focus:ring-blue-200 ring-offset-0 bg-[#1c1e22] mx-[15px] my-[27px] py-[25px] px-[35px]">
                 Start Case
               </button>
             </div>}
@@ -309,11 +309,13 @@ const CaseSelector: React.FC = () => {
   };
   return <div className="min-h-screen bg-white relative">
       <main className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 md:py-[63px]">
-        <header ref={headerRef} className={`text-center mb-16 transition-all duration-700 ${headerVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <header ref={headerRef} className={`text-left mb-16 transition-all duration-700 ${headerVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <h1 className="text-5xl md:text-6xl text-[#0F172A] mb-6 font-semibold">
             Select Your Case
           </h1>
-          <p className="text-[#475569] text-xl max-w-3xl mx-auto md:text-2xl">Pick your case. Let Jura handle the paperwork.</p>
+          <p className="text-[#475569] text-xl max-w-3xl font-normal md:text-xl">
+            Choose your legal case type and get personalized help with court documents and filing processes.
+          </p>
         </header>
 
         <section className="max-w-6xl mx-auto relative">
