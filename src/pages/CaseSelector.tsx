@@ -295,11 +295,11 @@ const CaseSelector: React.FC = () => {
                 </div>}
             </div>
             
-            {caseItem.available && <div className="mt-auto pt-3 shrink-0 self-start my-0 py-[7px]">
+            {caseItem.available && <div className="mt-auto pt-3 shrink-0 self-start">
               <button onClick={e => {
               e.stopPropagation();
               navigate(START_ROUTE);
-            }} className="inline-flex items-center justify-center rounded-full h-11 text-white font-semibold leading-none transition focus:outline-none focus:ring-2 focus:ring-blue-200 ring-offset-0 bg-[#1c1e22] mx-[15px] py-[25px] px-[35px] my-[34px]">
+            }} className="inline-flex items-center justify-center rounded-full h-11 text-white font-semibold leading-none transition focus:outline-none focus:ring-2 focus:ring-blue-200 ring-offset-0 bg-[#1c1e22] px-8 py-3">
                 Start Case
               </button>
             </div>}
@@ -309,14 +309,14 @@ const CaseSelector: React.FC = () => {
   };
   return <div className="min-h-screen bg-white relative">
       <main className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 md:py-[63px]">
-        <header ref={headerRef} className={`text-left mb-16 transition-all duration-700 flex flex-col sm:flex-row sm:items-end sm:justify-between ${headerVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+        <header ref={headerRef} className={`text-left mb-16 transition-all duration-700 flex flex-col sm:flex-row sm:items-start sm:justify-between ${headerVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="flex-1">
             <h1 className="text-4xl sm:text-5xl text-[#0F172A] mb-4 sm:mb-6 font-medium md:text-6xl">
               Select Your Case
             </h1>
             <p className="text-[#475569] text-lg sm:text-xl max-w-3xl font-normal">Pick your case. Let Jura handle the paperwork.</p>
           </div>
-          <div className="w-24 sm:w-32 h-12 sm:h-16"></div>
+          <div className="w-[108px] h-12 flex-shrink-0"></div>
         </header>
 
         <section className="max-w-6xl mx-auto relative">
