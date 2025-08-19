@@ -309,11 +309,14 @@ const CaseSelector: React.FC = () => {
   };
   return <div className="min-h-screen bg-white relative">
       <main className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-16 md:py-[63px]">
-        <header ref={headerRef} className={`text-left mb-16 transition-all duration-700 ${headerVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
-          <h1 className="text-5xl md:text-6xl text-[#0F172A] mb-6 font-semibold">
-            Select Your Case
-          </h1>
-          <p className="text-[#475569] text-xl max-w-3xl font-normal md:text-xl">Pick your case. Let Jura handle the paperwork.</p>
+        <header ref={headerRef} className={`text-left mb-16 transition-all duration-700 flex flex-col sm:flex-row sm:items-end sm:justify-between ${headerVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
+          <div className="flex-1">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl text-[#0F172A] mb-4 sm:mb-6 font-semibold">
+              Select Your Case
+            </h1>
+            <p className="text-[#475569] text-lg sm:text-xl max-w-3xl font-normal">Pick your case. Let Jura handle the paperwork.</p>
+          </div>
+          <div className="w-24 sm:w-32 h-12 sm:h-16"></div>
         </header>
 
         <section className="max-w-6xl mx-auto relative">
