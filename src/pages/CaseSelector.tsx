@@ -328,11 +328,9 @@ const CaseSelector: React.FC = () => {
                 </CarouselItem>)}
             </CarouselContent>
             
-            {/* Navigation buttons positioned in upper right */}
-            <div className="absolute -top-20 right-0 flex gap-3 z-20 py-[21px]">
-              <CarouselPrevious className="relative top-0 left-0 translate-x-0 translate-y-0 bg-white/90 hover:bg-white border-2 border-gray-200 shadow-lg w-12 h-12 rounded-3xl" />
-              <CarouselNext className="relative top-0 right-0 translate-x-0 translate-y-0 bg-white/90 hover:bg-white border-2 border-gray-200 shadow-lg w-12 h-12 rounded-3xl" />
-            </div>
+            {/* Navigation buttons positioned on opposite sides */}
+            <CarouselPrevious className="absolute -top-20 left-0 z-20 py-[21px] bg-white/90 hover:bg-white border-2 border-gray-200 shadow-lg w-12 h-12 rounded-3xl" />
+            <CarouselNext className="absolute -top-20 right-0 z-20 py-[21px] bg-white/90 hover:bg-white border-2 border-gray-200 shadow-lg w-12 h-12 rounded-3xl" />
           </Carousel>
         </section>
 
