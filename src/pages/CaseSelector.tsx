@@ -311,10 +311,10 @@ const CaseSelector: React.FC = () => {
       <main className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 md:py-[52px] py-[18px]">
         <header ref={headerRef} className={`text-left mb-16 transition-all duration-700 flex flex-col sm:flex-row sm:items-start sm:justify-between ${headerVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="flex-1 mt-8">
-            <h1 className="sm:text-5xl text-[#0F172A] mb-4 sm:mb-6 font-medium md:text-6xl text-6xl">
+            <h1 className="sm:text-5xl text-[#0F172A] mb-4 sm:mb-6 font-medium md:text-6xl text-6xl text-center">
               Select Your Case
             </h1>
-            <p className="text-[#475569] sm:text-xl max-w-3xl font-normal text-lg">Pick your case. Let Jura handle the paperwork.</p>
+            <p className="text-[#475569] sm:text-xl max-w-3xl font-normal text-lg text-left">Pick your case. Let Jura handle the paperwork.</p>
           </div>
           
         </header>
