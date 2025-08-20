@@ -312,7 +312,7 @@ const CaseSelector: React.FC = () => {
         <header ref={headerRef} className={`text-left mb-16 transition-all duration-700 flex flex-col sm:flex-row sm:items-start sm:justify-between ${headerVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="flex-1 mt-8">
             <h1 className="sm:text-5xl text-[#0F172A] mb-4 sm:mb-6 font-medium text-center md:text-6xl text-5xl">SELECT YOU'R CASE</h1>
-            <p className="text-[#475569] sm:text-xl max-w-3xl font-normal text-lg text-center">Pick your case. Let Jura handle the paperwork.</p>
+            
           </div>
           
         </header>
