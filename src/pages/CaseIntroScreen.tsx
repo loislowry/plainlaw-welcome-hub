@@ -87,8 +87,8 @@ const CaseIntroScreen: React.FC = () => {
     canonical.setAttribute("href", href);
   }, []);
   const advance = reduced ? undefined : () => setStep(s => s + 1);
-  return <div className="min-h-screen bg-background my-0 py-0">
-      <main className="max-w-2xl mx-auto px-6 py-[73px] md:py-[51px]">
+  return <div className="min-h-screen bg-background">
+      <main className="max-w-2xl mx-auto px-6 py-16 md:py-24">
         <header className="space-y-5 md:space-y-7">
           <div className="flex justify-start">
             <div aria-hidden className="inline-flex items-center justify-center rounded-full w-14 h-14 md:w-16 md:h-16 text-foreground">
@@ -131,7 +131,7 @@ const CaseIntroScreen: React.FC = () => {
           </section>}
 
         {(reduced || step >= 2 + steps.length) && <div className="mt-10 md:mt-12 flex justify-center">
-            <Button size="lg" onClick={() => navigate("/intake")} className="rounded-full bg-[transpar#1c1e22ent] bg-[#1c1e22]">
+            <Button size="lg" onClick={() => navigate("/intake")} className="rounded-full bg-[transpar#1c1e22ent] text-slate-900 bg-[#d7d7ff]">
               I understand
             </Button>
           </div>}
