@@ -118,7 +118,7 @@ const CaseSelector: React.FC = () => {
           {/* Card Content */}
           <div className="flex flex-col h-full py-0 my-0">
             <div className="flex-1 space-y-2 md:space-y-3">
-              <h3 className="text-3xl md:text-4xl leading-tight font-semibold uppercase">
+              <h3 className="text-3xl leading-tight uppercase md:text-4xl font-medium">
                 {caseItem.title}
               </h3>
               
@@ -308,10 +308,10 @@ const CaseSelector: React.FC = () => {
       </div>;
   };
   return <div className="min-h-screen bg-white relative">
-      <main className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 md:py-[52px] py-[18px]">
+      <main className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 py-[18px] md:py-[34px]">
         <header ref={headerRef} className={`text-left mb-16 transition-all duration-700 flex flex-col sm:flex-row sm:items-start sm:justify-between ${headerVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="flex-1 mt-8">
-            <h1 className="sm:text-5xl text-[#0F172A] mb-4 sm:mb-6 font-medium text-center md:text-6xl text-5xl">SELECT YOU'R CASE</h1>
+            <h1 className="sm:text-5xl text-[#0F172A] mb-4 sm:mb-6 text-center md:text-6xl text-5xl font-medium">Choose Your Case</h1>
             
           </div>
           
