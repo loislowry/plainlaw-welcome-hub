@@ -310,7 +310,7 @@ const CaseSelector: React.FC = () => {
         <header ref={headerRef} className={`text-left mb-16 transition-all duration-700 flex flex-col sm:flex-row sm:items-start sm:justify-between ${headerVisible ? 'animate-fade-in opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`}>
           <div className="flex-1 mt-8">
             <h1 className="sm:text-5xl text-[#0F172A] mb-4 sm:mb-6 text-center md:text-6xl text-5xl font-medium">PLAINLAW</h1>
-            <p className="text-center text-[#475569] text-lg md:text-xl max-w-2xl mx-auto">
+            <p className="text-center text-[#475569] max-w-2xl mx-auto md:text-xl text-lg font-light">
               Jura is your legal assistant it takes your story, prepares the forms, and guides you through filing.
             </p>
           </div>
