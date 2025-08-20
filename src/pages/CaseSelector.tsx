@@ -299,9 +299,7 @@ const CaseSelector: React.FC = () => {
               <button onClick={e => {
               e.stopPropagation();
               navigate(START_ROUTE);
-            }} className="inline-flex items-center justify-center rounded-full h-11 font-semibold leading-none transition focus:outline-none focus:ring-2 focus:ring-blue-200 ring-offset-0 px-8 py-3 bg-[#bdbdff] text-slate-900">
-                Start Case
-              </button>
+            }} className="inline-flex items-center justify-center rounded-full h-11 leading-none transition focus:outline-none focus:ring-2 focus:ring-blue-200 ring-offset-0 px-8 py-3 text-slate-900 text-center font-light bg-[#d7d7ff]">Start My Case</button>
             </div>}
           </div>
         </div>
